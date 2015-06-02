@@ -36,7 +36,7 @@ public class RotateController : MonoBehaviour {
 		transform.Rotate (Vector3.up * Time.deltaTime * speed);
 		if(Player1Pressed.P1isPressed == true)
 		{
-			if(gameObject.name == "Player")
+			if(gameObject.name == "Jester1")
 			{
 				if(isMove == false)
 				{
@@ -53,7 +53,7 @@ public class RotateController : MonoBehaviour {
 
 		if(Player2Pressed.P2isPressed == true)
 		{
-			if(gameObject.name == "Player2")
+			if(gameObject.name == "Jester2")
 			{
 				if(isMove == false)
 				{

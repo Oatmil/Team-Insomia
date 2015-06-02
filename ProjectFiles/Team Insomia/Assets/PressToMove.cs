@@ -14,8 +14,8 @@ public class PressToMove : MonoBehaviour {
 	void Start () {
 		P1isPressed = false;
 		P2isPressed = false;
-		P1SpeedCharging = GameObject.Find ("Player").GetComponent<RotateController> ();
-		P2SpeedCharging = GameObject.Find ("Player2").GetComponent<RotateController> ();
+		P1SpeedCharging = GameObject.Find ("Jester1").GetComponent<RotateController> ();
+		P2SpeedCharging = GameObject.Find ("Jester2").GetComponent<RotateController> ();
 		
 	}
 	
@@ -28,7 +28,7 @@ public class PressToMove : MonoBehaviour {
 			}
 			else
 			{
-				OnMouseUp();
+				//OnMouseUp();
 				
 			}
 		}
@@ -70,10 +70,8 @@ public class PressToMove : MonoBehaviour {
 		if (P1isPressed == false) {
 			if(gameObject.name == "buttonP1")
 			{
-
-				P1isPressed = true;
 				P1startCharging = false;
-					
+				P1isPressed = true;
 			}
 		}
 		if (P2isPressed == false) {
