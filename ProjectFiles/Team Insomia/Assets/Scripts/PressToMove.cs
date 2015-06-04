@@ -1,85 +1,61 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class PressToMove : MonoBehaviour {
 
+    public GameObject m_JesterToThisButton;
+
+    public int ChargeRate;
+    public int MaxMove;
 	public bool P1isPressed;
-	public bool P2isPressed;
 	bool P1startCharging = false;
-	bool P2startCharging = false;
 	RotateController P1SpeedCharging;
-	RotateController P2SpeedCharging;
-	
+
+
+    public Color defaultColour;
+    public Color selectedColour;
+    private Material mat;
 
 	void Start () {
 		P1isPressed = false;
-		P2isPressed = false;
-		P1SpeedCharging = GameObject.Find ("Jester1").GetComponent<RotateController> ();
-		P2SpeedCharging = GameObject.Find ("Jester2").GetComponent<RotateController> ();
+        P1SpeedCharging = m_JesterToThisButton.GetComponent<RotateController>();
+        mat = GetComponent<Renderer>().material;
+
 		
 	}
 	
 
 	void Update () {
 		if (P1startCharging) {
-			if( P1SpeedCharging.movementSpeed<1000)
+            if (P1SpeedCharging.movementSpeed < MaxMove)
 			{
-				P1SpeedCharging.movementSpeed += 5;
+                P1SpeedCharging.movementSpeed += ChargeRate;
 			}
 			else
 			{
-				//OnMouseUp();
-				
+                //OnTouchUp();
 			}
 		}
-		if (P2startCharging) {
-
-			if( P2SpeedCharging.movementSpeed<1000)
-			{
-				P2SpeedCharging.movementSpeed += 5;
-			}
-			else
-			{
-				OnMouseUp();
-				
-			}
-			
-		}
-		Debug.Log (P1SpeedCharging.movementSpeed);
+       
+		//Debug.Log (P1SpeedCharging.movementSpeed);
 	}
-	void OnMouseDown()
+	void OnTouchDown()
 	{
+        mat.color = selectedColour;
+
 		if (P1isPressed == false) {
-			if(gameObject.name == "buttonP1")
-			{
-				
 				P1startCharging = true;
-			}
-		}
-		if (P2isPressed == false) {
-			if(gameObject.name == "buttonP2")
-			{
-				P2startCharging = true;
-			}
 		}
 	}
 
-	void OnMouseUp()
+	void OnTouchUp()
 	{
+        mat.color = defaultColour;
 
 		if (P1isPressed == false) {
-			if(gameObject.name == "buttonP1")
-			{
 				P1startCharging = false;
 				P1isPressed = true;
-			}
-		}
-		if (P2isPressed == false) {
-			if(gameObject.name == "buttonP2")
-			{
-				P2isPressed = true;
-				P2startCharging = false;
-			}
 		}
 	}
+
 }
