@@ -37,7 +37,7 @@ public class PressToMove : MonoBehaviour {
 			}
 		}
        
-		//Debug.Log (P1SpeedCharging.movementSpeed);
+		Debug.Log (P1SpeedCharging.movementSpeed);
 	}
 	void OnTouchDown()
 	{
