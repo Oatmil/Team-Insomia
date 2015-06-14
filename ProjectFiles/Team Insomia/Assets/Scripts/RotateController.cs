@@ -11,6 +11,7 @@ public class RotateController : MonoBehaviour {
 	//GameObject myNewFart;
 	float myTime;
 	bool isMove = false;
+    bool clockwise = true;
 
 	Vector3 moveDirection;
 
@@ -50,7 +51,17 @@ public class RotateController : MonoBehaviour {
 			if(myTime >= 0.6f)
 			{
 				isMove = false;
-				speed = 100;
+                if (clockwise == false)
+                {
+                    speed = 100;
+                    clockwise = true;
+
+                }
+                else
+                {
+                    speed = -100;
+                    clockwise = false;
+                }
 				myTime = 0;
 				Player1Pressed.P1isPressed = false;
 				//Destroy(myNewFart);
