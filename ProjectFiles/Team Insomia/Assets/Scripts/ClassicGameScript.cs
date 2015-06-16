@@ -9,8 +9,8 @@ public class ClassicGameScript : MonoBehaviour
 	int currentRound=0;
 	float timer=0;
 	GamePhases currentPhase=GamePhases.RoundAnnouncement;
-	GameObject jes1,jes2,jes3,jes4;
 
+	GUIStyle winnerStyle;
 	//For resetting purpose at the start of each round
 	GameObject[] MovingObjects = new GameObject[5];
 	GameObject[] Buttons = new GameObject[4];
@@ -19,6 +19,8 @@ public class ClassicGameScript : MonoBehaviour
 	int winnerPlayer=0;
 	void Start () 
 	{
+		winnerStyle = new GUIStyle();
+		winnerStyle.normal.textColor=Color.black;
 		currentRound=1;
 		//Prepare an array of all moving obejcts
 		for(int i=0;i<5;i++)
@@ -97,29 +99,56 @@ public class ClassicGameScript : MonoBehaviour
 
 		}
 	}
+	bool announcedPlayer=false;
 	void EndMatch()
 	{
-		winnerPlayer=1;
-		for(int i=0;i<4;i++)
+		if(!announcedPlayer)
 		{
-			if(MovingObjects[i].GetComponent<Scoring>().score > MovingObjects[winnerPlayer-1].GetComponent<Scoring>().score)
+			winnerPlayer=1;
+			for(int i=0;i<4;i++)
 			{
-				winnerPlayer = i+1;
+				if(MovingObjects[i].GetComponent<Scoring>().score > MovingObjects[winnerPlayer-1].GetComponent<Scoring>().score)
+				{
+
+					winnerPlayer = i+1;
+
+				}
+			}
+            switch(winnerPlayer)
+			{
+			case 1:
+
+				winnerStyle.normal.textColor=Color.red;
+				break;
+
+			case 2:
+				winnerStyle.normal.textColor = new Color(0, 1f,0.876f);
+				break;
+			case 3:
+				winnerStyle.normal.textColor = new Color(0.996f, 0.298f, 0.996f);
+				break;
+			case 4:
+				winnerStyle.normal.textColor = new Color(0.627f, 1f, 0.129f);
+				break;
+			}
+		
+			for(int i=0; i<4;i++)
+			{
+				Buttons[i].GetComponent<PressToMove>().P1isPressed=false;
+			}
+			
+
+			for(int i=0;i<5;i++)
+			{
+				if(MovingObjects[i])
+				{
+					MovingObjects[i].transform.position = MovingObjectsP[i];
+					if(MovingObjects[i].GetComponent<Rigidbody>())
+						MovingObjects[i].GetComponent<Rigidbody>().velocity=Vector3.zero;
+				}
 			}
 		}
-		for(int i=0; i<4;i++)
-		{
-			Buttons[i].GetComponent<PressToMove>().P1isPressed=false;
-		}
-		for(int i=0;i<5;i++)
-		{
-			if(MovingObjects[i])
-			{
-				MovingObjects[i].transform.position = MovingObjectsP[i];
-				if(MovingObjects[i].GetComponent<Rigidbody>())
-					MovingObjects[i].GetComponent<Rigidbody>().velocity=Vector3.zero;
-			}
-		}
+		announcedPlayer=true;
 	}
 	// Update is called once per frame
 	void Update () 
@@ -135,14 +164,20 @@ public class ClassicGameScript : MonoBehaviour
 
 	void OnGUI()
 	{
+		GUI.skin.label.fontSize = 60;
 		if(currentPhase == GamePhases.RoundAnnouncement)
 		{
-            Debug.Log("round 1");
 			GUI.Label(new Rect(Screen.width/2,Screen.height/2,400,400), "Round "+(currentRound.ToString()));
+		}
+		else if(currentPhase == GamePhases.Round)
+		{
+			GUI.Label(new Rect(10,Screen.height/2,150,400), "Time "+(((int)(RoundDuration-timer+1)).ToString()));
 		}
 		else if(currentPhase == GamePhases.MatchEnding)
 		{
-			GUI.Label(new Rect(400,400,400,400), "Winner is: Player "+(winnerPlayer.ToString()));
+
+			winnerStyle.fontSize=60;
+			GUI.Label(new Rect(400,400,400,400), "Winner is: Player "+(winnerPlayer.ToString()),winnerStyle);
 		}
 	}
 }

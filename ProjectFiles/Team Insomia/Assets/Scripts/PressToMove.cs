@@ -20,7 +20,6 @@ public class PressToMove : MonoBehaviour {
 		P1isPressed = false;
         P1SpeedCharging = m_JesterToThisButton.GetComponent<RotateController>();
         mat = GetComponent<Renderer>().material;
-
 		
 	}
 	
@@ -37,7 +36,7 @@ public class PressToMove : MonoBehaviour {
 			}
 		}
        
-		Debug.Log (P1SpeedCharging.movementSpeed);
+		//Debug.Log (P1SpeedCharging.movementSpeed);
 	}
 	void OnTouchDown()
 	{

@@ -12,7 +12,11 @@ public class DeathRespawn : MonoBehaviour {
 	void Update () {
         if (transform.position.y <= -15f)
         {
-            transform.position = DefaultStartingPoint;
+            Vector3 position = DefaultStartingPoint;
+			position.x = Random.Range(-3,3);
+			position.z = Random.Range(-3,3);
+			transform.position =position;
+
         }
 	}
 }
