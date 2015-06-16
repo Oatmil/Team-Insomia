@@ -76,6 +76,9 @@ public class Scoring : MonoBehaviour
 					spotlight.transform.position=pos;
 				}
 			}
+            lastTouchedJester.GetComponent<Scoring>().lastTouchedJester = null;
+            lastTouchedJester = null;
+
 
 		}
 	}
@@ -83,23 +86,23 @@ public class Scoring : MonoBehaviour
 	void OnGUI()
 	{
 
-        //GUI.skin.label.fontSize = 60;
-        //if (name == "Jester1")
-        //{
-        //    GUI.Label(new Rect(120, 500, 500, 500), score.ToString());
-        //}
-        //if (name == "Jester2")
-        //{
-        //    GUI.Label(new Rect(900, 500, 500, 500), score.ToString());
-        //}
-        //if (name == "Jester3")
-        //{
-        //    GUI.Label(new Rect(120, 120, 500, 500), score.ToString());
-        //}
-        //if (name == "Jester4")
-        //{
-        //    GUI.Label(new Rect(900, 120, 500, 500), score.ToString());
-        //}
+        GUI.skin.label.fontSize = 60;
+        if (name == "Jester1")
+        {
+            GUI.Label(new Rect(Screen.width / 10, Screen.height / 10*8, 500, 500), score.ToString());
+        }
+        if (name == "Jester2")
+        {
+            GUI.Label(new Rect(Screen.width / 10*8, Screen.height / 10*8, 500, 500), score.ToString());
+        }
+        if (name == "Jester3")
+        {
+            GUI.Label(new Rect(Screen.width / 10, Screen.height / 10, 500, 500), score.ToString());
+        }
+        if (name == "Jester4")
+        {
+            GUI.Label(new Rect(Screen.width / 10*8, Screen.height / 10, 500, 500), score.ToString());
+        }
 		
 	}
 

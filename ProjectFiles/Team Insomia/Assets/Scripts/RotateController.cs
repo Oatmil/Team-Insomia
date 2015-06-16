@@ -53,13 +53,13 @@ public class RotateController : MonoBehaviour {
 				isMove = false;
                 if (clockwise == false)
                 {
-                    speed = 100;
+                    speed = 200;
                     clockwise = true;
 
                 }
                 else
                 {
-                    speed = -100;
+                    speed = -200;
                     clockwise = false;
                 }
 				myTime = 0;

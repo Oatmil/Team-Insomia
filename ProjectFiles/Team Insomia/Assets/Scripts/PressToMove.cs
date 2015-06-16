@@ -11,7 +11,6 @@ public class PressToMove : MonoBehaviour {
 	bool P1startCharging = false;
 	RotateController P1SpeedCharging;
 
-
     public Color defaultColour;
     public Color selectedColour;
     private Material mat;
@@ -20,9 +19,8 @@ public class PressToMove : MonoBehaviour {
 		P1isPressed = false;
         P1SpeedCharging = m_JesterToThisButton.GetComponent<RotateController>();
         mat = GetComponent<Renderer>().material;
-		
+
 	}
-	
 
 	void Update () {
 		if (P1startCharging) {
@@ -36,7 +34,7 @@ public class PressToMove : MonoBehaviour {
 			}
 		}
        
-		//Debug.Log (P1SpeedCharging.movementSpeed);
+		Debug.Log (P1SpeedCharging.movementSpeed);
 	}
 	void OnTouchDown()
 	{
@@ -49,6 +47,8 @@ public class PressToMove : MonoBehaviour {
 
 	void OnTouchUp()
 	{
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         mat.color = defaultColour;
 
 		if (P1isPressed == false) {

@@ -13,10 +13,9 @@ public class DeathRespawn : MonoBehaviour {
         if (transform.position.y <= -15f)
         {
             Vector3 position = DefaultStartingPoint;
-			position.x = Random.Range(-3,3);
-			position.z = Random.Range(-3,3);
-			transform.position =position;
-
+            position.x = Random.Range(-3, 3);
+            position.z = Random.Range(-3, 3);
+            transform.position = position;
         }
 	}
 }
