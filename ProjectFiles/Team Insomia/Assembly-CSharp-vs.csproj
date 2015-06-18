@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\DeathRespawn.cs" />
      <Compile Include="Assets\Scripts\ClassicGameScript.cs" />
+     <Compile Include="Assets\Scripts\GameSettings.cs" />
      <Compile Include="Assets\Scripts\PressToMove(new).cs" />
      <Compile Include="Assets\Scripts\PressToMove.cs" />
      <Compile Include="Assets\Scripts\RayInput.cs" />

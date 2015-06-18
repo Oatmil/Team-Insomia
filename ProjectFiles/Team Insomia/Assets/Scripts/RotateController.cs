@@ -5,14 +5,14 @@ public class RotateController : MonoBehaviour {
 
     public GameObject m_buttonOfCharacter;
 
-	public int speed;
-	public int movementSpeed;
+	[HideInInspector] public int speed;
+	[HideInInspector] public int movementSpeed;
 	public GameObject myFart;
 	//GameObject myNewFart;
 	float myTime;
 	bool isMove = false;
     bool clockwise = true;
-
+	GameSettings settings;
 	Vector3 moveDirection;
 
 	Rigidbody myRigid;
@@ -27,6 +27,9 @@ public class RotateController : MonoBehaviour {
         Player1Pressed = m_buttonOfCharacter.GetComponent<PressToMove>();
 		//P1fartPos = GameObject.Find ("fartCubeP1").GetComponent<fartPos> ();
         defaultMoveSpeed = movementSpeed;
+		settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
+		speed = settings.JesterSpeed;
+		movementSpeed = settings.JesterMovementSpeed;
 	}
 
 	void Update () {
