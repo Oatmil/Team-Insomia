@@ -14,6 +14,9 @@ public class PressToMove : MonoBehaviour {
     public Color defaultColour;
     public Color selectedColour;
     private Material mat;
+    DeathRespawn respawn;
+    public float respawnCounter;
+
 
 	void Start () {
 		P1isPressed = false;
@@ -22,30 +25,45 @@ public class PressToMove : MonoBehaviour {
 		settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
 		ChargeRate=settings.JesterChargeRate;
 		MaxMove =settings.JesterMaxMove;
+        respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
 
 	}
 
-	void Update () {
-		if (P1startCharging) {
-            if (P1SpeedCharging.movementSpeed < MaxMove)
-			{
-                P1SpeedCharging.movementSpeed += ChargeRate;
-			}
-			else
-			{
-                //OnTouchUp();
-			}
-		}
-       
-		Debug.Log (P1SpeedCharging.movementSpeed);
-	}
+    void Update()
+    {
+       if (P1startCharging)
+            {
+                if (P1SpeedCharging.movementSpeed < MaxMove)
+                {
+                    P1SpeedCharging.movementSpeed += ChargeRate;
+                }
+                else
+                {
+                    //OnTouchUp();
+                }
+            }
+
+           // Debug.Log(P1SpeedCharging.movementSpeed);
+    }
 	void OnTouchDown()
 	{
-        mat.color = selectedColour;
+        if (respawn.death == true)
+        {
+            Debug.Log("respawncounter" + respawnCounter);
+            respawnCounter -= 1.0f;
+            if (respawnCounter <= 0)
+                respawn.death = false;
+        }
+        else
+        {
+            respawnCounter = 5.0f;
+            mat.color = selectedColour;
 
-		if (P1isPressed == false) {
-				P1startCharging = true;
-		}
+            if (P1isPressed == false)
+            {
+                P1startCharging = true;
+            }
+        }
 	}
 
 	void OnTouchUp()
@@ -59,5 +77,4 @@ public class PressToMove : MonoBehaviour {
 				P1isPressed = true;
 		}
 	}
-
 }
