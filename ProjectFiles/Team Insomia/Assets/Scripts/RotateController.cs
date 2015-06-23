@@ -7,7 +7,6 @@ public class RotateController : MonoBehaviour {
 
 	[HideInInspector] public int speed;
 	[HideInInspector] public int movementSpeed;
-	public GameObject myFart;
 	//GameObject myNewFart;
 	float myTime;
 	bool isMove = false;

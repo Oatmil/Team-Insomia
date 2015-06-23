@@ -33,7 +33,7 @@ public class PressToMove : MonoBehaviour {
     {
        if (P1startCharging)
             {
-                if (P1SpeedCharging.movementSpeed < MaxMove)
+                if (P1SpeedCharging.movementSpeed <= MaxMove)
                 {
                     P1SpeedCharging.movementSpeed += ChargeRate;
                 }
@@ -42,7 +42,9 @@ public class PressToMove : MonoBehaviour {
                     //OnTouchUp();
                 }
             }
-
+       respawnCounter -= Time.deltaTime;
+       if (respawnCounter <= 0)
+           respawn.death = false;
            // Debug.Log(P1SpeedCharging.movementSpeed);
     }
 	void OnTouchDown()
@@ -51,12 +53,10 @@ public class PressToMove : MonoBehaviour {
         {
             Debug.Log("respawncounter" + respawnCounter);
             respawnCounter -= 1.0f;
-            if (respawnCounter <= 0)
-                respawn.death = false;
         }
         else
         {
-            respawnCounter = 5.0f;
+            respawnCounter = 10.0f;
             mat.color = selectedColour;
 
             if (P1isPressed == false)
@@ -68,8 +68,11 @@ public class PressToMove : MonoBehaviour {
 
 	void OnTouchUp()
 	{
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
+        if (respawn.death == false)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+        }
         mat.color = defaultColour;
 
 		if (P1isPressed == false) {
