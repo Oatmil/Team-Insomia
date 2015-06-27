@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class PressToMove : MonoBehaviour {
+public class PressToMove : MonoBehaviour
+{
 
     public GameObject m_JesterToThisButton;
 
-	[HideInInspector] public int ChargeRate;
-	[HideInInspector] public int MaxMove;
-	public bool P1isPressed;
-	bool P1startCharging = false;
-	RotateController P1SpeedCharging;
-	GameSettings settings;
+    [HideInInspector]
+    public int ChargeRate;
+    [HideInInspector]
+    public int MaxMove;
+    public bool P1isPressed;
+    bool P1startCharging = false;
+    RotateController P1SpeedCharging;
+    GameSettings settings;
     public Color defaultColour;
     public Color selectedColour;
     private Material mat;
@@ -18,37 +21,39 @@ public class PressToMove : MonoBehaviour {
     public float respawnCounter;
 
 
-	void Start () {
-		P1isPressed = false;
+    void Start()
+    {
+        P1isPressed = false;
         P1SpeedCharging = m_JesterToThisButton.GetComponent<RotateController>();
         mat = GetComponent<Renderer>().material;
-		settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
-		ChargeRate=settings.JesterChargeRate;
-		MaxMove =settings.JesterMaxMove;
+        settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
+        ChargeRate = settings.JesterChargeRate;
+        MaxMove = settings.JesterMaxMove;
         respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
 
-	}
+    }
 
     void Update()
     {
-       if (P1startCharging)
+        if (P1startCharging)
+        {
+            if (P1SpeedCharging.movementSpeed <= MaxMove)
             {
-                if (P1SpeedCharging.movementSpeed <= MaxMove)
-                {
-                    P1SpeedCharging.movementSpeed += ChargeRate;
-                }
-                else
-                {
-                    //OnTouchUp();
-                }
+                P1SpeedCharging.movementSpeed += ChargeRate;
             }
-       respawnCounter -= Time.deltaTime;
-       if (respawnCounter <= 0)
-           respawn.death = false;
-           // Debug.Log(P1SpeedCharging.movementSpeed);
+            else
+            {
+                //OnTouchUp();
+            }
+        }
+
+        respawnCounter -= Time.deltaTime;
+        if (respawnCounter <= 0)
+            respawn.death = false;
+        // Debug.Log(P1SpeedCharging.movementSpeed);
     }
-	void OnTouchDown()
-	{
+    void OnTouchDown()
+    {
         if (respawn.death == true)
         {
             Debug.Log("respawncounter" + respawnCounter);
@@ -56,7 +61,6 @@ public class PressToMove : MonoBehaviour {
         }
         else
         {
-            respawnCounter = 10.0f;
             mat.color = selectedColour;
 
             if (P1isPressed == false)
@@ -64,10 +68,10 @@ public class PressToMove : MonoBehaviour {
                 P1startCharging = true;
             }
         }
-	}
+    }
 
-	void OnTouchUp()
-	{
+    void OnTouchUp()
+    {
         if (respawn.death == false)
         {
             AudioSource audio = GetComponent<AudioSource>();
@@ -75,9 +79,10 @@ public class PressToMove : MonoBehaviour {
         }
         mat.color = defaultColour;
 
-		if (P1isPressed == false) {
-				P1startCharging = false;
-				P1isPressed = true;
-		}
-	}
+        if (P1isPressed == false)
+        {
+            P1startCharging = false;
+            P1isPressed = true;
+        }
+    }
 }

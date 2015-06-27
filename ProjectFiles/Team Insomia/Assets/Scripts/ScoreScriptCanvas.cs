@@ -16,6 +16,5 @@ public class ScoreScriptCanvas : MonoBehaviour {
 	void Update () {
         Scoring = (Scoring)JesterToScore.GetComponent(typeof(Scoring));
         scoreText.text = Scoring.score.ToString();
-        Debug.Log(Scoring.score.ToString());
 	}
 }

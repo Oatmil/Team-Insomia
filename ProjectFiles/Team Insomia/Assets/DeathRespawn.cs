@@ -5,8 +5,11 @@ public class DeathRespawn : MonoBehaviour {
     Vector3 DefaultStartingPoint;
     public bool death = false;
     bool changeState = false;
+    public GameObject button;
+    PressToMove MoveScript;
 	// Use this for initialization
 	void Start () {
+        MoveScript = (PressToMove)button.GetComponent(typeof(PressToMove));
         DefaultStartingPoint = transform.position;
 	}
 	
@@ -16,6 +19,8 @@ public class DeathRespawn : MonoBehaviour {
         {
             if (changeState == false)
             {
+                this.GetComponent<Rigidbody>().useGravity = false;
+                MoveScript.respawnCounter = 10f;
                 death = true;
                 changeState = true;
             }
@@ -26,6 +31,8 @@ public class DeathRespawn : MonoBehaviour {
                 position.x = Random.Range(-3, 3);
                 position.z = Random.Range(-3, 3);
                 transform.position = position;
+                this.GetComponent<Rigidbody>().useGravity = true;
+
             }
         }
         

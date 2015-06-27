@@ -3,11 +3,12 @@ using System.Collections;
 enum GamePhases { Round, RoundAnnouncement, MatchEnding }
 public class ClassicGameScript : MonoBehaviour
 {
-    public int RoundDuration = 30;
-    public int numberOfRounds = 3;
-    public int AnnouncementTime = 3;
+    public bool RoundEnded = true;
+    public int RoundDuration;
+    public int numberOfRounds;
+    public int AnnouncementTime;
     int currentRound = 0;
-    float timer = 0;
+    public float timer = 0;
     GamePhases currentPhase = GamePhases.RoundAnnouncement;
 
     GUIStyle winnerStyle;
@@ -61,6 +62,7 @@ public class ClassicGameScript : MonoBehaviour
         }
         if (timer > AnnouncementTime)
         {
+            RoundEnded = false;
             timer = 0;
             currentPhase = GamePhases.Round;
         }
@@ -75,6 +77,7 @@ public class ClassicGameScript : MonoBehaviour
         {
             timer = 0;
             currentRound++;
+            //RoundEnded = true;
             if (currentRound <= numberOfRounds)
                 currentPhase = GamePhases.RoundAnnouncement;
             else
