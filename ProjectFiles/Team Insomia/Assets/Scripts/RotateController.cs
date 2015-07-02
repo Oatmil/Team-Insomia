@@ -9,7 +9,7 @@ public class RotateController : MonoBehaviour {
 	[HideInInspector] public int movementSpeed;
 	//GameObject myNewFart;
 	float myTime;
-	bool isMove = false;
+	public bool isMove = false;
     bool clockwise = true;
 	GameSettings settings;
 	Vector3 moveDirection;
@@ -50,7 +50,7 @@ public class RotateController : MonoBehaviour {
 		if(isMove == true)
 		{
 			myTime += Time.deltaTime;
-			if(myTime >= 0.6f)
+			if(myTime >= 0.8f)
 			{
 				isMove = false;
                 if (clockwise == false)
