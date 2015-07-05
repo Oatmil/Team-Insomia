@@ -10,33 +10,35 @@ public class PowerUpSpawn : MonoBehaviour {
     float m_delayTimer;
     Vector3 spawnRandom;
     float spawnNumber =0;
+
+	gotoStartGame checkGameStart;
 	// Use this for initialization
 	void Start () {
+		checkGameStart = GameObject.Find ("Main Camera").GetComponent<gotoStartGame> ();
+
         m_delayTimer = delayTimer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-        spawnNumber = Random.Range(0, 2);
-        Debug.Log(spawnNumber);
-        if (delayTimer <= 0)
-        {
+		if (checkGameStart.isGameStarted == true) {
+			spawnNumber = Random.Range (0, 2);
+			//Debug.Log(spawnNumber);
+			if (delayTimer <= 0) {
             
-            if (spawnNumber == 0)
-            {
-                spawnRandom = new Vector3(Random.Range(-2.5f, 2.5f), 24f, Random.Range(-2f, 2.8f));
-                GameObject shrink1 = GameObject.Instantiate(m_shirnk, spawnRandom, Quaternion.identity) as GameObject;
-                delayTimer = m_delayTimer;
-            }
-            if (spawnNumber == 1)
-            {
-                spawnRandom = new Vector3(Random.Range(-2.5f, 2.5f), 24f, Random.Range(-2f, 2.8f));
-                GameObject grow1 = GameObject.Instantiate(m_grow, spawnRandom, Quaternion.identity) as GameObject;
-                delayTimer = m_delayTimer;
-            }
+				if (spawnNumber == 0) {
+					spawnRandom = new Vector3 (Random.Range (-2.5f, 2.5f), 24f, Random.Range (-2f, 2.8f));
+					GameObject shrink1 = GameObject.Instantiate (m_shirnk, spawnRandom, Quaternion.identity) as GameObject;
+					delayTimer = m_delayTimer;
+				}
+				if (spawnNumber == 1) {
+					spawnRandom = new Vector3 (Random.Range (-2.5f, 2.5f), 24f, Random.Range (-2f, 2.8f));
+					GameObject grow1 = GameObject.Instantiate (m_grow, spawnRandom, Quaternion.identity) as GameObject;
+					delayTimer = m_delayTimer;
+				}
             
-        }
-        delayTimer -= Time.deltaTime;
+			}
+			delayTimer -= Time.deltaTime;
+		}
 	}
 }

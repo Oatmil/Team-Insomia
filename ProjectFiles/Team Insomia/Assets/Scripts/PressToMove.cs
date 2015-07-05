@@ -5,11 +5,14 @@ public class PressToMove : MonoBehaviour
 {
 
     public GameObject m_JesterToThisButton;
+    public GameObject m_fartbar;
+
+    float fartCharge;
 
     [HideInInspector]
     public int ChargeRate;
     [HideInInspector]
-    public int MaxMove;
+    public float MaxMove;
     public bool P1isPressed;
     bool P1startCharging = false;
     RotateController P1SpeedCharging;
@@ -30,11 +33,13 @@ public class PressToMove : MonoBehaviour
         ChargeRate = settings.JesterChargeRate;
         MaxMove = settings.JesterMaxMove;
         respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
-
     }
 
     void Update()
     {
+        fartCharge = P1SpeedCharging.movementSpeed / MaxMove;
+        Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
+        m_fartbar.transform.localScale = new Vector3(fartCharge, 1.0f, 1.0f);
         if (P1startCharging)
         {
             if (P1SpeedCharging.movementSpeed <= MaxMove)
@@ -52,11 +57,11 @@ public class PressToMove : MonoBehaviour
             respawn.death = false;
         // Debug.Log(P1SpeedCharging.movementSpeed);
     }
-    void OnTouchDown()
+    void OnTouchStay()
     {
         if (respawn.death == true)
         {
-            Debug.Log("respawncounter" + respawnCounter);
+           // Debug.Log("respawncounter" + respawnCounter);
             respawnCounter -= 1.0f;
         }
         else

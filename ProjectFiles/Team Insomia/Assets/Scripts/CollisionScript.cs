@@ -27,7 +27,7 @@ public class CollisionScript : MonoBehaviour
         if (takeneffect == true)
         {
             effectTime -= Time.deltaTime;
-            if (effectTime <= 0)
+            if (effectTime <= 0 || transform.position.y <= -15f)
             {
                 takeneffect = false;
                 rb.mass = defaultmass;
@@ -44,14 +44,14 @@ public class CollisionScript : MonoBehaviour
             case "Shrink(Clone)":
 
                 rb.mass = 0.6f;
-                transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                transform.localScale = new Vector3(0.4f, defaultsize.y, 0.4f);
                 takeneffect = true;
                 Destroy(col.gameObject);
                 break;
 
             case "Grow(Clone)":
                 rb.mass = 1.4f;
-                transform.localScale = new Vector3(1f, 1f, 1f);
+			transform.localScale = new Vector3(0.9f, defaultsize.y, 0.9f);
                 takeneffect = true;
                 Destroy(col.gameObject);
                 break;

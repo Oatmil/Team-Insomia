@@ -32,7 +32,7 @@ public class DeathRespawn : MonoBehaviour {
             if(death == false)
             {
                 Vector3 position = SpawnPoint;
-                Debug.Log("position" + " " + position.x + " " + position.y + " " + position.z);
+                //Debug.Log("position" + " " + position.x + " " + position.y + " " + position.z);
                 position.y = 8.0f;
                 transform.position = position;
                 transform.LookAt(new Vector3(0, 8, 0));

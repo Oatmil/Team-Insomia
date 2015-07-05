@@ -6,7 +6,7 @@ public class RotateController : MonoBehaviour {
     public GameObject m_buttonOfCharacter;
 
 	[HideInInspector] public int speed;
-	[HideInInspector] public int movementSpeed;
+	[HideInInspector] public float movementSpeed;
 	//GameObject myNewFart;
 	float myTime;
 	public bool isMove = false;
@@ -19,7 +19,7 @@ public class RotateController : MonoBehaviour {
 	PressToMove Player1Pressed;
 
 	//fartPos P1fartPos;
-    int defaultMoveSpeed;
+    float defaultMoveSpeed;
 
 	void Start () {
 		myRigid = GetComponent<Rigidbody> ();
@@ -42,7 +42,6 @@ public class RotateController : MonoBehaviour {
 				//myNewFart = Instantiate(myFart,P1fartPos.myFartPos,Quaternion.identity)as GameObject;
 				speed = 0;
 				isMove = true;
-
 				}		
 		}
 
@@ -50,7 +49,7 @@ public class RotateController : MonoBehaviour {
 		if(isMove == true)
 		{
 			myTime += Time.deltaTime;
-			if(myTime >= 0.8f)
+			if(myTime >= 1.0f)
 			{
 				isMove = false;
                 if (clockwise == false)
