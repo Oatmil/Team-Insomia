@@ -9,7 +9,7 @@ public class RotateController : MonoBehaviour {
 	[HideInInspector] public int movementSpeed;
 	//GameObject myNewFart;
 	float myTime;
-	bool isMove = false;
+	[HideInInspector]public bool isMove = false;
     bool clockwise = true;
 	GameSettings settings;
 	Vector3 moveDirection;

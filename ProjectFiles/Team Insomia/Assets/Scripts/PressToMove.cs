@@ -11,7 +11,8 @@ public class PressToMove : MonoBehaviour
     [HideInInspector]
     public int MaxMove;
     public bool P1isPressed;
-    bool P1startCharging = false;
+	[HideInInspector]
+    public bool P1startCharging = false;
     RotateController P1SpeedCharging;
     GameSettings settings;
     public Color defaultColour;
@@ -83,6 +84,7 @@ public class PressToMove : MonoBehaviour
         {
             P1startCharging = false;
             P1isPressed = true;
+
         }
     }
 }

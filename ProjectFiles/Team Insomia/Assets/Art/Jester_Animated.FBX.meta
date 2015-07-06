@@ -1,0 +1,838 @@
+fileFormatVersion: 2
+guid: edf50c6c26e814342a50570352b8a10f
+timeCreated: 1435568454
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone004
+    100002: Bone008
+    100004: Bone012
+    100006: Bone016
+    100008: Bone020
+    100010: Chest
+    100012: Crotch
+    100014: Cylinder004
+    100016: Dummy003
+    100018: hat bone
+    100020: hat bone 1
+    100022: hat bone 1(mirrored)
+    100024: hat bone 2
+    100026: hat bone 2(mirrored)
+    100028: hat bone1
+    100030: hat controller
+    100032: Head
+    100034: HeadRotation
+    100036: IK Chain001
+    100038: IK Chain002
+    100040: IK Chain003
+    100042: //RootNode
+    100044: LeftArm
+    100046: LeftFoot
+    100048: LeftFootControl
+    100050: LeftHand
+    100052: LeftLeg
+    100054: LeftShoulder
+    100056: LeftThigh
+    100058: MoveWholeBody
+    100060: Object006
+    100062: Object007
+    100064: Rectangle001
+    100066: Rectangle002
+    100068: RightArm
+    100070: RightFoot
+    100072: RightFootControl
+    100074: RightHand
+    100076: RightLeg
+    100078: RightShoulder
+    100080: RightThigh
+    100082: Sphere006
+    100084: Spine
+    400000: Bone004
+    400002: Bone008
+    400004: Bone012
+    400006: Bone016
+    400008: Bone020
+    400010: Chest
+    400012: Crotch
+    400014: Cylinder004
+    400016: Dummy003
+    400018: hat bone
+    400020: hat bone 1
+    400022: hat bone 1(mirrored)
+    400024: hat bone 2
+    400026: hat bone 2(mirrored)
+    400028: hat bone1
+    400030: hat controller
+    400032: Head
+    400034: HeadRotation
+    400036: IK Chain001
+    400038: IK Chain002
+    400040: IK Chain003
+    400042: //RootNode
+    400044: LeftArm
+    400046: LeftFoot
+    400048: LeftFootControl
+    400050: LeftHand
+    400052: LeftLeg
+    400054: LeftShoulder
+    400056: LeftThigh
+    400058: MoveWholeBody
+    400060: Object006
+    400062: Object007
+    400064: Rectangle001
+    400066: Rectangle002
+    400068: RightArm
+    400070: RightFoot
+    400072: RightFootControl
+    400074: RightHand
+    400076: RightLeg
+    400078: RightShoulder
+    400080: RightThigh
+    400082: Sphere006
+    400084: Spine
+    4300000: Sphere006
+    4300002: Object007
+    4300004: Object006
+    4300006: Cylinder004
+    7400000: Idle
+    7400002: SwtichToCharge
+    7400004: ChargeLoop
+    7400006: SwitchToFart
+    7400008: FartLoop
+    7400010: SwitchToIdle
+    9500000: //RootNode
+    13700000: Cylinder004
+    13700002: Object006
+    13700004: Object007
+    13700006: Sphere006
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: 4
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder004
+        weight: 1
+      - path: hat controller
+        weight: 1
+      - path: hat controller/hat bone
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)/hat bone 2(mirrored)
+        weight: 1
+      - path: hat controller/hat bone 1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1/hat bone 2
+        weight: 1
+      - path: MoveWholeBody
+        weight: 1
+      - path: MoveWholeBody/Crotch
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head/Bone004
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand/Bone016
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand/Bone020
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot/Bone008
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot/Bone012
+        weight: 1
+      - path: Object006
+        weight: 1
+      - path: Object007
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle001/RightFootControl
+        weight: 1
+      - path: Rectangle001/RightFootControl/IK Chain002
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: Rectangle002/LeftFootControl
+        weight: 1
+      - path: Rectangle002/LeftFootControl/IK Chain001
+        weight: 1
+      - path: Sphere006
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/HeadRotation
+        weight: 1
+      - path: Spine/IK Chain003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SwtichToCharge
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder004
+        weight: 1
+      - path: hat controller
+        weight: 1
+      - path: hat controller/hat bone
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)/hat bone 2(mirrored)
+        weight: 1
+      - path: hat controller/hat bone 1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1/hat bone 2
+        weight: 1
+      - path: MoveWholeBody
+        weight: 1
+      - path: MoveWholeBody/Crotch
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head/Bone004
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand/Bone016
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand/Bone020
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot/Bone008
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot/Bone012
+        weight: 1
+      - path: Object006
+        weight: 1
+      - path: Object007
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle001/RightFootControl
+        weight: 1
+      - path: Rectangle001/RightFootControl/IK Chain002
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: Rectangle002/LeftFootControl
+        weight: 1
+      - path: Rectangle002/LeftFootControl/IK Chain001
+        weight: 1
+      - path: Sphere006
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/HeadRotation
+        weight: 1
+      - path: Spine/IK Chain003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ChargeLoop
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder004
+        weight: 1
+      - path: hat controller
+        weight: 1
+      - path: hat controller/hat bone
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)/hat bone 2(mirrored)
+        weight: 1
+      - path: hat controller/hat bone 1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1/hat bone 2
+        weight: 1
+      - path: MoveWholeBody
+        weight: 1
+      - path: MoveWholeBody/Crotch
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head/Bone004
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand/Bone016
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand/Bone020
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot/Bone008
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot/Bone012
+        weight: 1
+      - path: Object006
+        weight: 1
+      - path: Object007
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle001/RightFootControl
+        weight: 1
+      - path: Rectangle001/RightFootControl/IK Chain002
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: Rectangle002/LeftFootControl
+        weight: 1
+      - path: Rectangle002/LeftFootControl/IK Chain001
+        weight: 1
+      - path: Sphere006
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/HeadRotation
+        weight: 1
+      - path: Spine/IK Chain003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SwitchToFart
+      takeName: Take 001
+      firstFrame: 21
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder004
+        weight: 1
+      - path: hat controller
+        weight: 1
+      - path: hat controller/hat bone
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)/hat bone 2(mirrored)
+        weight: 1
+      - path: hat controller/hat bone 1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1/hat bone 2
+        weight: 1
+      - path: MoveWholeBody
+        weight: 1
+      - path: MoveWholeBody/Crotch
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head/Bone004
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand/Bone016
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand/Bone020
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot/Bone008
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot/Bone012
+        weight: 1
+      - path: Object006
+        weight: 1
+      - path: Object007
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle001/RightFootControl
+        weight: 1
+      - path: Rectangle001/RightFootControl/IK Chain002
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: Rectangle002/LeftFootControl
+        weight: 1
+      - path: Rectangle002/LeftFootControl/IK Chain001
+        weight: 1
+      - path: Sphere006
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/HeadRotation
+        weight: 1
+      - path: Spine/IK Chain003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: FartLoop
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder004
+        weight: 1
+      - path: hat controller
+        weight: 1
+      - path: hat controller/hat bone
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)/hat bone 2(mirrored)
+        weight: 1
+      - path: hat controller/hat bone 1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1/hat bone 2
+        weight: 1
+      - path: MoveWholeBody
+        weight: 1
+      - path: MoveWholeBody/Crotch
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head/Bone004
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand/Bone016
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand/Bone020
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot/Bone008
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot/Bone012
+        weight: 1
+      - path: Object006
+        weight: 1
+      - path: Object007
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle001/RightFootControl
+        weight: 1
+      - path: Rectangle001/RightFootControl/IK Chain002
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: Rectangle002/LeftFootControl
+        weight: 1
+      - path: Rectangle002/LeftFootControl/IK Chain001
+        weight: 1
+      - path: Sphere006
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/HeadRotation
+        weight: 1
+      - path: Spine/IK Chain003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: SwitchToIdle
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder004
+        weight: 1
+      - path: hat controller
+        weight: 1
+      - path: hat controller/hat bone
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)
+        weight: 1
+      - path: hat controller/hat bone/hat bone 1(mirrored)/hat bone 2(mirrored)
+        weight: 1
+      - path: hat controller/hat bone 1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1
+        weight: 1
+      - path: hat controller/hat bone 1/hat bone1/hat bone 2
+        weight: 1
+      - path: MoveWholeBody
+        weight: 1
+      - path: MoveWholeBody/Crotch
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/Head/Bone004
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/LeftShoulder/LeftArm/LeftHand/Bone016
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand
+        weight: 1
+      - path: MoveWholeBody/Crotch/Chest/RightShoulder/RightArm/RightHand/Bone020
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/LeftThigh/LeftLeg/LeftFoot/Bone008
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot
+        weight: 1
+      - path: MoveWholeBody/Crotch/Dummy003/RightThigh/RightLeg/RightFoot/Bone012
+        weight: 1
+      - path: Object006
+        weight: 1
+      - path: Object007
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Rectangle001/RightFootControl
+        weight: 1
+      - path: Rectangle001/RightFootControl/IK Chain002
+        weight: 1
+      - path: Rectangle002
+        weight: 1
+      - path: Rectangle002/LeftFootControl
+        weight: 1
+      - path: Rectangle002/LeftFootControl/IK Chain001
+        weight: 1
+      - path: Sphere006
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/HeadRotation
+        weight: 1
+      - path: Spine/IK Chain003
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
