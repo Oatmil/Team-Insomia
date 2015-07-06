@@ -18,8 +18,13 @@ public class ClassicGameScript : MonoBehaviour
     Vector3[] MovingObjectsP = new Vector3[5];
     Spotlight spotlightScript;
     int winnerPlayer = 0;
+	gotoStartGame checkGameStart;
+
+	float Restarttime = 2.0f;
+
     void Start()
     {
+		checkGameStart = GameObject.Find ("Main Camera").GetComponent<gotoStartGame> ();
         winnerStyle = new GUIStyle();
         winnerStyle.normal.textColor = Color.black;
         currentRound = 1;
@@ -156,31 +161,34 @@ public class ClassicGameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentPhase == GamePhases.RoundAnnouncement)
-            AnnounceRound();
-        else if (currentPhase == GamePhases.Round)
-            UpdateRound();
-        else if (currentPhase == GamePhases.MatchEnding)
-            EndMatch();
-
+		if (checkGameStart.isGameStarted == true) {
+			if (currentPhase == GamePhases.RoundAnnouncement)
+				AnnounceRound ();
+			else if (currentPhase == GamePhases.Round)
+				UpdateRound ();
+			else if (currentPhase == GamePhases.MatchEnding)
+			{
+				EndMatch ();
+				Restarttime -= Time.deltaTime;
+			}
+		};
+		if (Restarttime <= 0)
+			Application.LoadLevel (Application.loadedLevel);
     }
 
     void OnGUI()
     {
-        GUI.skin.label.fontSize = 60;
-        if (currentPhase == GamePhases.RoundAnnouncement)
-        {
-            GUI.Label(new Rect(Screen.width / 3, Screen.height / 3, 400, 400), "Round " + (currentRound.ToString()));
-        }
-        else if (currentPhase == GamePhases.Round)
-        {
-            GUI.Label(new Rect(Screen.width/9 , Screen.height / 3, 150, 400), "Time " + (((int)(RoundDuration - timer + 1)).ToString()));
-        }
-        else if (currentPhase == GamePhases.MatchEnding)
-        {
-
-            winnerStyle.fontSize = 60;
-            GUI.Label(new Rect(Screen.width / 5, Screen.height / 5, 200, 200), "Winner is: Player " + (winnerPlayer.ToString()), winnerStyle);
-        }
+		if (checkGameStart.isGameStarted == true) {
+			GUI.skin.label.fontSize = 60;
+			if (currentPhase == GamePhases.RoundAnnouncement) {
+				GUI.Label (new Rect (Screen.width / 3, Screen.height / 3, 400, 400), "Round " + (currentRound.ToString ()));
+			} else if (currentPhase == GamePhases.Round) {
+				GUI.Label (new Rect (Screen.width / 9, Screen.height / 3, 150, 400), "Time " + (((int)(RoundDuration - timer + 1)).ToString ()));
+			} else if (currentPhase == GamePhases.MatchEnding) {
+				
+				winnerStyle.fontSize = 60;
+				GUI.Label (new Rect (Screen.width / 5, Screen.height / 5, 200, 200), "Winner is: Player " + (winnerPlayer.ToString ()), winnerStyle);
+			}
+		}
     }
 }
