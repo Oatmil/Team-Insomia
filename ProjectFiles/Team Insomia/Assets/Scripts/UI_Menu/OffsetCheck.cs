@@ -27,14 +27,14 @@ public class OffsetCheck : MonoBehaviour {
 			}
 			if(myPos.x > -1.5f && myPos.x <2.5f)
 			{
-				myScale.x = 2.5f;
-				myScale.y = 3.2f;
+				myScale.x = 0.425f;
+				myScale.y = 0.5f;
 				GetComponent<BoxCollider>().enabled = true;
 			}
 			else
 			{
-				myScale.x = 1.8f;
-				myScale.y = 2.5f;
+				myScale.x = 0.34f;
+				myScale.y = 0.4f;
 				GetComponent<BoxCollider>().enabled = false;
 				
 			}

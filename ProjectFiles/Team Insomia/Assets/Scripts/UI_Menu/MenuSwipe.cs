@@ -21,9 +21,9 @@ public class MenuSwipe : MonoBehaviour
 		if(isAnimationDone.isAnimationDone == true)
 		{
 
-			Vector3 Cube1Pos = transform.FindChild ("GameMode01").localPosition;
-			Vector3 Cube2Pos = transform.FindChild ("GameMode02").localPosition;
-			Vector3 Cube3Pos = transform.FindChild ("GameMode03").localPosition;
+			Vector3 Cube1Pos = Mode01.transform.localPosition;
+			Vector3 Cube2Pos = Mode02.transform.localPosition;
+			Vector3 Cube3Pos = Mode03.transform.localPosition;
 
 			if (Input.touchCount == 1) {
 				if (Input.GetTouch (0).phase == TouchPhase.Began) {
@@ -48,9 +48,9 @@ public class MenuSwipe : MonoBehaviour
 				}
 			}
 
-			transform.FindChild ("GameMode01").localPosition = Cube1Pos;
-			transform.FindChild ("GameMode02").localPosition = Cube2Pos;
-			transform.FindChild ("GameMode03").localPosition = Cube3Pos;
+			Mode01.transform.localPosition = Cube1Pos;
+			Mode02.transform.localPosition = Cube2Pos;
+			Mode03.transform.localPosition = Cube3Pos;
 
 		}
 
