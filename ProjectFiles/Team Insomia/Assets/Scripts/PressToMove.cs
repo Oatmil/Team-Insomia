@@ -24,7 +24,7 @@ public class PressToMove : MonoBehaviour
     DeathRespawn respawn;
     public float respawnCounter;
 
-
+	float defaultrotation;
     void Start()
     {
         P1isPressed = false;
@@ -34,15 +34,16 @@ public class PressToMove : MonoBehaviour
         ChargeRate = settings.JesterChargeRate;
         MaxMove = settings.JesterMaxMove;
         respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
+		defaultrotation = m_fartbar.transform.localEulerAngles.z;
     }
 
     void Update()
     {
 		if(respawn)
 		{
-        fartCharge = P1SpeedCharging.movementSpeed / MaxMove;
-
-        m_fartbar.transform.localScale = new Vector3(fartCharge, 1.0f, 1.0f);
+			fartCharge = P1SpeedCharging.movementSpeed  / MaxMove;
+			//Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
+			m_fartbar.transform.localEulerAngles = new Vector3(0.0f, 0.0f, defaultrotation - 144.0f + fartCharge*144);
         if (P1startCharging)
         {
             if (P1SpeedCharging.movementSpeed <= MaxMove)

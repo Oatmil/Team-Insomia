@@ -12,7 +12,7 @@ public class quarternion : MonoBehaviour {
 
 		Quaternion current = transform.localRotation;
 
-		transform.localRotation = Quaternion.Slerp (current, rotation, 1);
+		transform.localRotation = Quaternion.Slerp (current, rotation, Time.deltaTime);
 		//transform.Translate (0, 0, 3 * Time.deltaTime);
 	}
 

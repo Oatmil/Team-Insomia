@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 public enum GamePhases { Round, RoundAnnouncement, MatchEnding, RoundConfirmation}
+
 public class ClassicGameScript : MonoBehaviour
 {
     public bool RoundEnded = true;

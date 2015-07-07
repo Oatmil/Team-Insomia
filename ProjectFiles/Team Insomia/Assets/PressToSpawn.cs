@@ -7,6 +7,7 @@ public class PressToSpawn : MonoBehaviour
 	public GameObject JesterToThis;
 	PressToMove moveScript;
 	StartGameOnTouch StartScript;
+	RotateController RC;
 	// Use this for initialization
 	void Start () 
 	{
@@ -14,18 +15,24 @@ public class PressToSpawn : MonoBehaviour
 		moveScript=gameObject.GetComponent<PressToMove>();
 		moveScript.enabled=false;
 		StartScript = GameObject.Find("ui_btn_start").GetComponent<StartGameOnTouch>();
+		RC = JesterToThis.GetComponent<RotateController> ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		if (gameFlag.isSelectionStarted) 
+		{
+			RC.speed=0;
+		}
 		if(gameFlag.isGameStarted)
 		{
+			RC.speed=200;
 			moveScript.enabled=true;
 		}
 	}
-	void OnTouchStay()
+	void OnTouchDown()
 	{
 		if(gameFlag.isSelectionStarted&!gameFlag.isGameStarted)
 		{
