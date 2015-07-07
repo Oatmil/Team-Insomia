@@ -38,10 +38,8 @@ public class PressToMove : MonoBehaviour
 
     void Update()
     {
-		if(respawn)
-		{
         fartCharge = P1SpeedCharging.movementSpeed / MaxMove;
-
+        Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
         m_fartbar.transform.localScale = new Vector3(fartCharge, 1.0f, 1.0f);
         if (P1startCharging)
         {
@@ -59,47 +57,39 @@ public class PressToMove : MonoBehaviour
         if (respawnCounter <= 0)
             respawn.death = false;
         // Debug.Log(P1SpeedCharging.movementSpeed);
-		}
     }
     void OnTouchStay()
     {
-		if(respawn)
-		{
+        if (respawn.death == true)
+        {
+           // Debug.Log("respawncounter" + respawnCounter);
+            respawnCounter -= 1.0f;
+        }
+        else
+        {
+            mat.color = selectedColour;
 
-	        if (respawn.death == true)
-	        {
-	           // Debug.Log("respawncounter" + respawnCounter);
-	            respawnCounter -= 1.0f;
-	        }
-	        else
-	        {
-	            mat.color = selectedColour;
-
-	            if (P1isPressed == false)
-	            {
-	                P1startCharging = true;
-	            }
-	        }
-		}
+            if (P1isPressed == false)
+            {
+                P1startCharging = true;
+            }
+        }
     }
 
     void OnTouchUp()
-	{
-		if(respawn)
-		{
-	        if (respawn.death == false)
-	        {
-	            AudioSource audio = GetComponent<AudioSource>();
-	            audio.Play();
-	        }
-	        mat.color = defaultColour;
+    {
+        if (respawn.death == false)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+        }
+        mat.color = defaultColour;
 
-	        if (P1isPressed == false)
-	        {
-	            P1startCharging = false;
-	            P1isPressed = true;
+        if (P1isPressed == false)
+        {
+            P1startCharging = false;
+            P1isPressed = true;
 
-	        }
-		}
+        }
     }
 }

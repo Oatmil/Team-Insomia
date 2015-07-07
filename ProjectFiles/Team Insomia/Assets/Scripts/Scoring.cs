@@ -76,11 +76,9 @@ public class Scoring : MonoBehaviour
 					spotlight.transform.position=pos;
 				}
 			}
-			if(lastTouchedJester)
-			{
             lastTouchedJester.GetComponent<Scoring>().lastTouchedJester = null;
             lastTouchedJester = null;
-			}
+
 
 		}
 	}
