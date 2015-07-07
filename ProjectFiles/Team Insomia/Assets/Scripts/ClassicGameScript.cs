@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
-enum GamePhases { Round, RoundAnnouncement, MatchEnding }
+using System.Collections.Generic;
+public enum GamePhases { Round, RoundAnnouncement, MatchEnding, RoundConfirmation}
 public class ClassicGameScript : MonoBehaviour
 {
     public bool RoundEnded = true;
@@ -8,8 +10,9 @@ public class ClassicGameScript : MonoBehaviour
     public int numberOfRounds;
     public int AnnouncementTime;
     int currentRound = 0;
-    public float timer = 0;
-    GamePhases currentPhase = GamePhases.RoundAnnouncement;
+	[HideInInspector] public float timer = 0;
+	int AliveJesters=0;
+	[HideInInspector] public GamePhases currentPhase = GamePhases.RoundAnnouncement;
 
     GUIStyle winnerStyle;
     //For resetting purpose at the start of each round
@@ -17,63 +20,130 @@ public class ClassicGameScript : MonoBehaviour
     GameObject[] Buttons = new GameObject[4];
     Vector3[] MovingObjectsP = new Vector3[5];
     Spotlight spotlightScript;
-    int winnerPlayer = 0;
+    GameObject winnerPlayer;
 	gotoStartGame checkGameStart;
+    
+	float Restarttime = 10.0f;
 
-	float Restarttime = 2.0f;
+	public List<Sprite> UISprites = new List<Sprite>();
+	int currentUISprite=0;
+	Image UIImage;
 
-    void Start()
-    {
+
+	public void ScriptStart(string[] JesterNames, int JesterCount)
+	{
+		AliveJesters = JesterCount;
 		checkGameStart = GameObject.Find ("Main Camera").GetComponent<gotoStartGame> ();
-        winnerStyle = new GUIStyle();
-        winnerStyle.normal.textColor = Color.black;
-        currentRound = 1;
-        //Prepare an array of all moving obejcts
-        for (int i = 0; i < 5; i++)
-        {
-            if (i < 4)
-            {
-                MovingObjects[i] = GameObject.Find("Jester" + ((i + 1).ToString()));
-            }
-            else
-            {
-                MovingObjects[i] = GameObject.Find("/Score_Spotlight");
-            }
-        }
+		winnerStyle = new GUIStyle();
+		winnerStyle.normal.textColor = Color.black;
+		currentRound = 1;
+		//Prepare an array of all moving obejcts
+		for (int i = 0; i < AliveJesters+1; i++)
+		{
+			if (i < AliveJesters)
+			{
+				MovingObjects[i] = GameObject.Find(JesterNames[i]);
+			}
+			else
+			{
+				MovingObjects[i] = GameObject.Find("/Score_Spotlight");
+			}
+		}
+		
+		//Prepare an array of the starting positions of said objects
+		for (int i = 0; i < AliveJesters+1; i++)
+		{
+			MovingObjectsP[i] = MovingObjects[i].transform.position;
+		}
+		
+		spotlightScript = GameObject.Find("Score_Spotlight").gameObject.GetComponent<Spotlight>();
+		
+		for (int i = 0; i < 4; i++)
+		{
+			Buttons[i] = GameObject.Find("/button P" + (i + 1).ToString());
+			
+		}
 
-        //Prepare an array of the starting positions of said objects
-        for (int i = 0; i < 5; i++)
-        {
-            MovingObjectsP[i] = MovingObjects[i].transform.position;
-        }
+		UIImage=GameObject.Find("Canvas(RoundUI)").GetComponentInChildren<Image>();
 
-        spotlightScript = GameObject.Find("Score_Spotlight").gameObject.GetComponent<Spotlight>();
 
-        for (int i = 0; i < 4; i++)
-        {
-            Buttons[i] = GameObject.Find("/button P" + (i + 1).ToString());
-
-        }
-
-    }
-
+	}
+	int RoundCountdown=3;
     void AnnounceRound()
     {
+		spotlightScript.parentPlayer = null;
+		spotlightScript.gameObject.transform.parent = null;
+
+		UIImage.enabled=true;
+
+		if(RoundCountdown==4)
+			UIImage.sprite = UISprites[9];
+
         currentPhase = GamePhases.RoundAnnouncement;
         timer += Time.deltaTime;
         for (int i = 0; i < 4; i++)
         {
+
             Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
         }
-        if (timer > AnnouncementTime)
+		for (int i = 0; i < AliveJesters+1; i++)
+		{
+			if (MovingObjects[i])
+			{
+				MovingObjects[i].transform.position = MovingObjectsP[i];
+				if (MovingObjects[i].GetComponent<Rigidbody>())
+					MovingObjects[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+			}
+		}
+
+		if (timer > 1)
+		{
+			if(RoundCountdown==4)
+			{
+				UIImage.sprite = UISprites[currentUISprite];
+				currentPhase = GamePhases.RoundConfirmation;
+				UIImage.enabled=false;
+			}
+			else
+			{
+			currentUISprite++;
+			UIImage.sprite = UISprites[currentUISprite];
+			}
+			
+			timer =0;
+			RoundCountdown--;
+
+		}
+
+        if (RoundCountdown<1)
         {
             RoundEnded = false;
             timer = 0;
+			RoundCountdown=4;
             currentPhase = GamePhases.Round;
+			UIImage.enabled=false;
+
         }
 
 
     }
+	void ConfirmRound()
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
+		}
+		for (int i = 0; i < AliveJesters+1; i++)
+		{
+			if (MovingObjects[i])
+			{
+				MovingObjects[i].transform.position = MovingObjectsP[i];
+				if (MovingObjects[i].GetComponent<Rigidbody>())
+					MovingObjects[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+			}
+		}
+
+	}
     void UpdateRound()
     {
         timer += Time.deltaTime;
@@ -91,7 +161,7 @@ public class ClassicGameScript : MonoBehaviour
             {
                 Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
             }
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < AliveJesters+1; i++)
             {
                 if (MovingObjects[i])
                 {
@@ -112,30 +182,30 @@ public class ClassicGameScript : MonoBehaviour
     {
         if (!announcedPlayer)
         {
-            winnerPlayer = 1;
-            for (int i = 0; i < 4; i++)
+			winnerPlayer = MovingObjects[0];
+            for (int i = 1; i < AliveJesters; i++)
             {
-                if (MovingObjects[i].GetComponent<Scoring>().score > MovingObjects[winnerPlayer - 1].GetComponent<Scoring>().score)
+                if (MovingObjects[i].GetComponent<Scoring>().score > MovingObjects[i-1].GetComponent<Scoring>().score)
                 {
 
-                    winnerPlayer = i + 1;
+					winnerPlayer = MovingObjects[i];
 
                 }
             }
-            switch (winnerPlayer)
+            switch (winnerPlayer.name[6])
             {
-                case 1:
+                case '1':
 
                     winnerStyle.normal.textColor = Color.red;
                     break;
 
-                case 2:
+                case '2':
                     winnerStyle.normal.textColor = new Color(0, 1f, 0.876f);
                     break;
-                case 3:
+                case '3':
                     winnerStyle.normal.textColor = new Color(0.996f, 0.298f, 0.996f);
                     break;
-                case 4:
+                case '4':
                     winnerStyle.normal.textColor = new Color(0.627f, 1f, 0.129f);
                     break;
             }
@@ -146,7 +216,7 @@ public class ClassicGameScript : MonoBehaviour
             }
 
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < AliveJesters+1; i++)
             {
                 if (MovingObjects[i])
                 {
@@ -164,6 +234,8 @@ public class ClassicGameScript : MonoBehaviour
 		if (checkGameStart.isGameStarted == true) {
 			if (currentPhase == GamePhases.RoundAnnouncement)
 				AnnounceRound ();
+			else if (currentPhase == GamePhases.RoundConfirmation)
+				ConfirmRound();
 			else if (currentPhase == GamePhases.Round)
 				UpdateRound ();
 			else if (currentPhase == GamePhases.MatchEnding)
@@ -178,17 +250,24 @@ public class ClassicGameScript : MonoBehaviour
 
     void OnGUI()
     {
-		if (checkGameStart.isGameStarted == true) {
-			GUI.skin.label.fontSize = 60;
-			if (currentPhase == GamePhases.RoundAnnouncement) {
-				GUI.Label (new Rect (Screen.width / 3, Screen.height / 3, 400, 400), "Round " + (currentRound.ToString ()));
-			} else if (currentPhase == GamePhases.Round) {
-				GUI.Label (new Rect (Screen.width / 9, Screen.height / 3, 150, 400), "Time " + (((int)(RoundDuration - timer + 1)).ToString ()));
-			} else if (currentPhase == GamePhases.MatchEnding) {
-				
-				winnerStyle.fontSize = 60;
-				GUI.Label (new Rect (Screen.width / 5, Screen.height / 5, 200, 200), "Winner is: Player " + (winnerPlayer.ToString ()), winnerStyle);
-			}
+//		if (checkGameStart.isGameStarted == true) 
+//		{
+//			GUI.skin.label.fontSize = 60;
+//			if (currentPhase == GamePhases.RoundAnnouncement) {
+//				GUI.Label (new Rect (Screen.width / 3, Screen.height / 3, 400, 400), "Round " + (currentRound.ToString ()));
+//			} else if (currentPhase == GamePhases.Round) {
+//				GUI.Label (new Rect (Screen.width / 9, Screen.height / 3, 150, 400), "Time " + (((int)(RoundDuration - timer + 1)).ToString ()));
+//			} else if (currentPhase == GamePhases.MatchEnding) {
+//				
+//				winnerStyle.fontSize = 60;
+//				GUI.Label (new Rect (Screen.width / 5, Screen.height / 5, 200, 200), "Winner is: Player " + (winnerPlayer.ToString ()), winnerStyle);
+//			}
+//		}
+		if (currentPhase == GamePhases.MatchEnding)
+		{
+							
+		 winnerStyle.fontSize = 60;
+		 GUI.Label (new Rect (Screen.width / 5, Screen.height / 5, 200, 200), "Winner is: Player " + winnerPlayer.name[6].ToString(), winnerStyle);
 		}
     }
 }
