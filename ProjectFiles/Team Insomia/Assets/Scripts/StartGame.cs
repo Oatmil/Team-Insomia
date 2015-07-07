@@ -26,7 +26,7 @@ public class StartGame : MonoBehaviour {
 	void OnTouchDown()
 	{
 
-		checking.isGameStarted = true;
+		checking.isSelectionStarted = true;
 		delayTImer = true;
 
 		}
