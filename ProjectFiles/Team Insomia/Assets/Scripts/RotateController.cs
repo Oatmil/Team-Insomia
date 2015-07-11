@@ -5,7 +5,7 @@ public class RotateController : MonoBehaviour {
 
     public GameObject m_buttonOfCharacter;
 
-	[HideInInspector] public int speed;
+	public int speed;
 	[HideInInspector] public float movementSpeed;
 	//GameObject myNewFart;
 	float myTime;
@@ -14,6 +14,7 @@ public class RotateController : MonoBehaviour {
 	GameSettings settings;
 	Vector3 moveDirection;
 
+	[HideInInspector]public float delayedDuration;
 	Rigidbody myRigid;
 
 	PressToMove Player1Pressed;
@@ -27,43 +28,44 @@ public class RotateController : MonoBehaviour {
 		//P1fartPos = GameObject.Find ("fartCubeP1").GetComponent<fartPos> ();
         defaultMoveSpeed = movementSpeed;
 		settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
-		speed = settings.JesterSpeed;
 		movementSpeed = settings.JesterMovementSpeed;
 	}
 
 	void Update () {
-		transform.Rotate (Vector3.up * Time.deltaTime * speed);
 		if(Player1Pressed.P1isPressed == true)
 		{
+			speed = 0;
 				if(isMove == false)
 				{
 				//transform.position += transform.forward * Time.deltaTime * movementSpeed;
 				myRigid.AddForce(transform.forward * movementSpeed);
 				//myNewFart = Instantiate(myFart,P1fartPos.myFartPos,Quaternion.identity)as GameObject;
-				speed = 0;
-				isMove = true;
+
+				//if(myRigid.velocity.magnitude == 0f)
+					isMove = true;
 				}		
 		}
 
 
 		if(isMove == true)
 		{
+			//Debug.Log(myTime);
 			myTime += Time.deltaTime;
-			if(myTime >= 1.0f)
+			if(myTime >= delayedDuration + 0.2f)
 			{
 				isMove = false;
+				myTime = 0;
                 if (clockwise == false)
                 {
-                    speed = 200;
+                    speed = -speed;
                     clockwise = true;
 
                 }
-                else
+                else if(clockwise == true)
                 {
-                    speed = -200;
+                    speed = -speed;
                     clockwise = false;
                 }
-				myTime = 0;
 				Player1Pressed.P1isPressed = false;
 				//Destroy(myNewFart);
                 movementSpeed = defaultMoveSpeed;
@@ -71,7 +73,8 @@ public class RotateController : MonoBehaviour {
 
 		}
 
-	
+		Debug.Log (speed);
+		transform.eulerAngles += new Vector3(0.0f,speed*Time.deltaTime,0.0f);
 	}
 
 

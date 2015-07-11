@@ -2,18 +2,25 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-public enum GamePhases { Round, RoundAnnouncement, MatchEnding, RoundConfirmation}
-
 public class ClassicGameScript : MonoBehaviour
 {
+	//GamePhases
+	[HideInInspector] public  int Round=0;
+	[HideInInspector] public  int RoundAnnouncement=1;
+	[HideInInspector] public  int MatchEnding = 2;
+	[HideInInspector] public  int RoundConfirmation=3;
+	[HideInInspector] public int currentPhase=1;
+
     public bool RoundEnded = true;
     public int RoundDuration;
     public int numberOfRounds;
     public int AnnouncementTime;
+
     int currentRound = 0;
+
 	[HideInInspector] public float timer = 0;
 	int AliveJesters=0;
-	[HideInInspector] public GamePhases currentPhase = GamePhases.RoundAnnouncement;
+
 
     GUIStyle winnerStyle;
     //For resetting purpose at the start of each round
@@ -61,7 +68,7 @@ public class ClassicGameScript : MonoBehaviour
 		
 		for (int i = 0; i < 4; i++)
 		{
-			Buttons[i] = GameObject.Find("/button P" + (i + 1).ToString());
+			Buttons[i] = GameObject.Find("/Button/button P" + (i + 1).ToString());
 			
 		}
 
@@ -80,7 +87,7 @@ public class ClassicGameScript : MonoBehaviour
 		if(RoundCountdown==4)
 			UIImage.sprite = UISprites[9];
 
-        currentPhase = GamePhases.RoundAnnouncement;
+        currentPhase = RoundAnnouncement;
         timer += Time.deltaTime;
         for (int i = 0; i < 4; i++)
         {
@@ -102,7 +109,7 @@ public class ClassicGameScript : MonoBehaviour
 			if(RoundCountdown==4)
 			{
 				UIImage.sprite = UISprites[currentUISprite];
-				currentPhase = GamePhases.RoundConfirmation;
+				currentPhase =RoundConfirmation;
 				UIImage.enabled=false;
 			}
 			else
@@ -121,7 +128,7 @@ public class ClassicGameScript : MonoBehaviour
             RoundEnded = false;
             timer = 0;
 			RoundCountdown=4;
-            currentPhase = GamePhases.Round;
+            currentPhase = Round;
 			UIImage.enabled=false;
 
         }
@@ -155,9 +162,9 @@ public class ClassicGameScript : MonoBehaviour
             currentRound++;
             //RoundEnded = true;
             if (currentRound <= numberOfRounds)
-                currentPhase = GamePhases.RoundAnnouncement;
+                currentPhase = RoundAnnouncement;
             else
-                currentPhase = GamePhases.MatchEnding;
+                currentPhase = MatchEnding;
             for (int i = 0; i < 4; i++)
             {
                 Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
@@ -233,13 +240,13 @@ public class ClassicGameScript : MonoBehaviour
     void Update()
     {
 		if (checkGameStart.isGameStarted == true) {
-			if (currentPhase == GamePhases.RoundAnnouncement)
+			if (currentPhase == RoundAnnouncement)
 				AnnounceRound ();
-			else if (currentPhase == GamePhases.RoundConfirmation)
+			else if (currentPhase == RoundConfirmation)
 				ConfirmRound();
-			else if (currentPhase == GamePhases.Round)
+			else if (currentPhase == Round)
 				UpdateRound ();
-			else if (currentPhase == GamePhases.MatchEnding)
+			else if (currentPhase == MatchEnding)
 			{
 				EndMatch ();
 				Restarttime -= Time.deltaTime;
@@ -264,7 +271,7 @@ public class ClassicGameScript : MonoBehaviour
 //				GUI.Label (new Rect (Screen.width / 5, Screen.height / 5, 200, 200), "Winner is: Player " + (winnerPlayer.ToString ()), winnerStyle);
 //			}
 //		}
-		if (currentPhase == GamePhases.MatchEnding)
+		if (currentPhase == MatchEnding)
 		{
 							
 		 winnerStyle.fontSize = 60;

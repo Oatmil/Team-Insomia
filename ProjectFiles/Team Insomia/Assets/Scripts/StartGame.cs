@@ -5,6 +5,7 @@ public class StartGame : MonoBehaviour {
 
 	public GameObject m_camera;
 	public GameObject m_Canvas;
+	public GameObject m_buttons;
 
 	public float delayCanvas;
 	bool delayTImer = false;
@@ -20,6 +21,7 @@ public class StartGame : MonoBehaviour {
 			delayCanvas -= Time.deltaTime;
 		if (delayCanvas <= 0.0f) {
 			m_Canvas.SetActive(true);
+			m_buttons.SetActive(true);
 			delayTImer = false;
 		}
 	}

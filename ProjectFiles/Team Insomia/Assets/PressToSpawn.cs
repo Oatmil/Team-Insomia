@@ -32,7 +32,7 @@ public class PressToSpawn : MonoBehaviour
 			moveScript.enabled=true;
 		}
 	}
-	void OnTouchDown()
+	void OnTouchStay()
 	{
 		if(gameFlag.isSelectionStarted&!gameFlag.isGameStarted)
 		{

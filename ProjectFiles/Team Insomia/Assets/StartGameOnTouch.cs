@@ -23,7 +23,7 @@ public class StartGameOnTouch : MonoBehaviour
 		if(JesterCounter>1&&gameFlag.isSelectionStarted)
 			spr_r.enabled=true;
 
-		if(classicGame.currentPhase==GamePhases.RoundConfirmation)
+		if(classicGame.currentPhase==classicGame.RoundConfirmation)
 		{
 			spr_r.enabled=true;
 		}
@@ -33,9 +33,9 @@ public class StartGameOnTouch : MonoBehaviour
 	{
 	  if(spr_r.enabled)
 		{
-			if(classicGame.currentPhase==GamePhases.RoundConfirmation)
+			if(classicGame.currentPhase==classicGame.RoundConfirmation)
 			{
-				classicGame.currentPhase = GamePhases.RoundAnnouncement;
+				classicGame.currentPhase = classicGame.RoundAnnouncement;
 					spr_r.enabled=false;
 			}
 			else

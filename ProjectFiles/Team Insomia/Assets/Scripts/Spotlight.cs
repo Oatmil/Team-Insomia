@@ -19,6 +19,8 @@ public class Spotlight : MonoBehaviour
 		if(parentPlayer!=null)
 		{
 			gameObject.transform.parent = parentPlayer.transform;
+        	transform.localPosition = new Vector3 (0.0f,heightposition,0.0f);
+			
 			scoringScript=parentPlayer.GetComponent<Scoring>();
 			addScore();
 		}

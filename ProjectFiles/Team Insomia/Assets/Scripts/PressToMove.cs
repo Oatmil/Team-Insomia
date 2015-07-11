@@ -23,6 +23,7 @@ public class PressToMove : MonoBehaviour
     private Material mat;
     DeathRespawn respawn;
     public float respawnCounter;
+	ClassicGameScript classicGame;
 
 	float defaultrotation;
     void Start()
@@ -35,12 +36,12 @@ public class PressToMove : MonoBehaviour
         MaxMove = settings.JesterMaxMove;
         respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
 		defaultrotation = m_fartbar.transform.localEulerAngles.z;
+		classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
     }
 
     void Update()
     {
-		if(respawn)
-		{
+
 			fartCharge = P1SpeedCharging.movementSpeed  / MaxMove;
 			//Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
 			m_fartbar.transform.localEulerAngles = new Vector3(0.0f, 0.0f, defaultrotation - 144.0f + fartCharge*144);
@@ -48,6 +49,7 @@ public class PressToMove : MonoBehaviour
         {
             if (P1SpeedCharging.movementSpeed <= MaxMove)
             {
+				P1SpeedCharging.delayedDuration = P1SpeedCharging.movementSpeed/MaxMove;
                 P1SpeedCharging.movementSpeed += ChargeRate;
             }
             else
@@ -60,33 +62,30 @@ public class PressToMove : MonoBehaviour
         if (respawnCounter <= 0)
             respawn.death = false;
         // Debug.Log(P1SpeedCharging.movementSpeed);
-		}
+	
     }
     void OnTouchStay()
     {
-		if(respawn)
-		{
+	        if (respawn.death == false) {
+			mat.color = selectedColour;
 
-	        if (respawn.death == true)
-	        {
-	           // Debug.Log("respawncounter" + respawnCounter);
-	            respawnCounter -= 1.0f;
-	        }
-	        else
-	        {
-	            mat.color = selectedColour;
-
-	            if (P1isPressed == false)
-	            {
-	                P1startCharging = true;
-	            }
-	        }
+			if (P1isPressed == false) {
+				P1startCharging = true;
+			}
 		}
+
     }
 
+	void OnTouchDown()
+	{
+		if (respawn.death == true) {
+			// Debug.Log("respawncounter" + respawnCounter);
+			respawnCounter -= 1.0f;
+		}
+	}
     void OnTouchUp()
 	{
-		if(respawn)
+		if(classicGame.currentPhase == classicGame.Round)
 		{
 	        if (respawn.death == false)
 	        {

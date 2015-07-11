@@ -25,7 +25,7 @@ public class BulbScript : MonoBehaviour
 			tempBulb = GameObject.Find ("Bulb"+(i+1).ToString());
                     if (GameScript.timer > GameScript.RoundDuration * (i+1) / 40)
                     {
-					Debug.Log("change");
+				//	Debug.Log("change");
                         Color color = Color.black;
                         tempBulb.GetComponent<Renderer>().material.color = color;
                     }

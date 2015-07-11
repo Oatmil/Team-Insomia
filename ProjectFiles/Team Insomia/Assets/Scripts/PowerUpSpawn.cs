@@ -10,18 +10,21 @@ public class PowerUpSpawn : MonoBehaviour {
     float m_delayTimer;
     Vector3 spawnRandom;
     float spawnNumber =0;
+	ClassicGameScript classicGame;
 
 	gotoStartGame checkGameStart;
 	// Use this for initialization
 	void Start () {
 		checkGameStart = GameObject.Find ("Main Camera").GetComponent<gotoStartGame> ();
-
+		classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
+		
         m_delayTimer = delayTimer;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (checkGameStart.isGameStarted == true) {
+			if(classicGame.currentPhase == classicGame.Round){
 			spawnNumber = Random.Range (0, 2);
 			//Debug.Log(spawnNumber);
 			if (delayTimer <= 0) {
@@ -39,6 +42,7 @@ public class PowerUpSpawn : MonoBehaviour {
             
 			}
 			delayTimer -= Time.deltaTime;
+			}		
 		}
 	}
 }
