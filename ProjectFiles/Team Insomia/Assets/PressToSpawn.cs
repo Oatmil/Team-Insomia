@@ -44,4 +44,8 @@ public class PressToSpawn : MonoBehaviour
 			}
 		}
 	}
+    void OnTouchUp()
+    {
+
+    }
 }

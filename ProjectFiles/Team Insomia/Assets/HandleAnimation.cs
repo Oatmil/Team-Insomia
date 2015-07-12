@@ -7,6 +7,7 @@ public class HandleAnimation : MonoBehaviour
 	PressToMove buttonScript;
 	Rigidbody rb; 
 	RotateController rc;
+    ClassicGameScript classicGame;
 	// Use this for initialization
 	void Start () 
 	{
@@ -14,15 +15,18 @@ public class HandleAnimation : MonoBehaviour
 		buttonScript = this.gameObject.GetComponent<RotateController>().m_buttonOfCharacter.GetComponent<PressToMove>();
 		rc = this.gameObject.GetComponent<RotateController>();
 		rb=this.gameObject.GetComponent<Rigidbody>();
+        classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		anim.SetBool("isCharging", buttonScript.P1startCharging);
-		if(rc)
-		anim.SetBool("isMoving",rc.isMove);
-
+        if (classicGame.currentPhase == classicGame.Round)
+        {
+            anim.SetBool("isCharging", buttonScript.P1startCharging);
+            if (rc)
+                anim.SetBool("isMoving", rc.isMove);
+        }
 		//Debug.Log(rc.isMove);
 	}
 }
