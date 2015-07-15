@@ -32,11 +32,13 @@ public class PowerUpSpawn : MonoBehaviour {
 				if (spawnNumber == 0) {
 					spawnRandom = new Vector3 (Random.Range (-2.5f, 2.5f), 24f, Random.Range (-2f, 2.8f));
 					GameObject shrink1 = GameObject.Instantiate (m_shirnk, spawnRandom, Quaternion.identity) as GameObject;
+					shrink1.transform.eulerAngles = new Vector3 (Random.Range (25,65),Random.Range (25,65),Random.Range (25,65));
 					delayTimer = m_delayTimer;
 				}
 				if (spawnNumber == 1) {
 					spawnRandom = new Vector3 (Random.Range (-2.5f, 2.5f), 24f, Random.Range (-2f, 2.8f));
 					GameObject grow1 = GameObject.Instantiate (m_grow, spawnRandom, Quaternion.identity) as GameObject;
+					grow1.transform.eulerAngles = new Vector3 (Random.Range (25,65),Random.Range (25,65),Random.Range (25,65));
 					delayTimer = m_delayTimer;
 				}
             

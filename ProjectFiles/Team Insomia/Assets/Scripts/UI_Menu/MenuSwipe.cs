@@ -34,15 +34,15 @@ public class MenuSwipe : MonoBehaviour
 				} else if (Input.GetTouch (0).phase == TouchPhase.Ended) {
 					if (endingPos.x >= startingPos.x+50) {
 					
-						Cube1Pos.x +=2.5f;
-						Cube2Pos.x +=2.5f;
-						Cube3Pos.x +=2.5f;
+						Cube1Pos.x += 8f;
+						Cube2Pos.x += 8f;
+						Cube3Pos.x += 8f;
 									
 					} else if (endingPos.x <= startingPos.x-50) {
 					
-						Cube1Pos.x -=2.5f;
-						Cube2Pos.x -=2.5f;
-						Cube3Pos.x -=2.5f;
+						Cube1Pos.x -= 8f;
+						Cube2Pos.x -= 8f;
+						Cube3Pos.x -= 8f;
 					
 					}
 				}

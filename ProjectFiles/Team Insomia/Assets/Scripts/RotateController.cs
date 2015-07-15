@@ -73,7 +73,7 @@ public class RotateController : MonoBehaviour {
 
 		}
 
-		Debug.Log (speed);
+		//Debug.Log (speed);
 		transform.eulerAngles += new Vector3(0.0f,speed*Time.deltaTime,0.0f);
 	}
 

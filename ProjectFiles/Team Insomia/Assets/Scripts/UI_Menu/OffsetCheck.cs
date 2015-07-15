@@ -18,24 +18,24 @@ public class OffsetCheck : MonoBehaviour {
 		if (isAnimationDone.isAnimationDone == true) {
 			myPos = transform.localPosition;
 			myScale = transform.localScale;
-			if (myPos.x >= 3.5f) {
-				myPos.x = -2;
+			if (myPos.x > 8.5f) {
+				myPos.x = -7.5f;
 			}
-			else if(myPos.x <= -2.5f)
+			else if(myPos.x < -7.5f)
 			{
-				myPos.x = 3;
+				myPos.x = 8.5f;
 			}
 			if(myPos.x > -1.5f && myPos.x <2.5f)
 			{
-				myScale.x = 0.425f;
-				myScale.y = 0.5f;
-				GetComponent<BoxCollider>().enabled = true;
+				myScale.x = 1f;
+				myScale.y = 1f;
+				GetComponent<CircleCollider2D>().enabled = true;
 			}
 			else
 			{
-				myScale.x = 0.34f;
-				myScale.y = 0.4f;
-				GetComponent<BoxCollider>().enabled = false;
+				myScale.x = 0.7f;
+				myScale.y = 0.7f;
+				GetComponent<CircleCollider2D>().enabled = false;
 				
 			}
 			transform.localScale = myScale;

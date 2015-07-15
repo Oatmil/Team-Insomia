@@ -2,19 +2,19 @@
 using System.Collections;
 
 public class StartGame : MonoBehaviour {
-
+	
 	public GameObject m_camera;
 	public GameObject m_Canvas;
 	public GameObject m_buttons;
-
+	
 	public float delayCanvas;
 	bool delayTImer = false;
 	gotoStartGame checking;
 	void Start () {
 		checking = m_camera.GetComponent<gotoStartGame> ();
-
+		
 	}
-
+	
 	void Update()
 	{
 		if (delayTImer == true)
@@ -25,13 +25,12 @@ public class StartGame : MonoBehaviour {
 			delayTImer = false;
 		}
 	}
-	void OnTouchDown()
+	void OnMouseDown()
 	{
-
 		checking.isSelectionStarted = true;
 		delayTImer = true;
-
-		}
-
-
+		
+	}
+	
+	
 }

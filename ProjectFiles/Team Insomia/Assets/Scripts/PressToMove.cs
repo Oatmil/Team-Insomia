@@ -5,7 +5,6 @@ public class PressToMove : MonoBehaviour
 {
 
     public GameObject m_JesterToThisButton;
-    public GameObject m_fartbar;
 
     float fartCharge;
 
@@ -35,17 +34,13 @@ public class PressToMove : MonoBehaviour
         ChargeRate = settings.JesterChargeRate;
         MaxMove = settings.JesterMaxMove;
         respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
-		defaultrotation = m_fartbar.transform.localEulerAngles.z;
 		classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
     }
 
     void Update()
-    {
-
-			fartCharge = P1SpeedCharging.movementSpeed  / MaxMove;
+    {		
 			//Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
-			m_fartbar.transform.localEulerAngles = new Vector3(0.0f, 0.0f, defaultrotation - 144.0f + fartCharge*144);
-        if (P1startCharging)
+			 if (P1startCharging)
         {
             if (P1SpeedCharging.movementSpeed <= MaxMove)
             {

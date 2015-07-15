@@ -3,12 +3,12 @@ using System.Collections;
 
 public class gotoStartGame : MonoBehaviour 
 {
-
+	
 	public bool isGameStarted = false;
 	public bool isSelectionStarted=false;
-
+	
 	Animator myAnime;
-
+	
 	void Start () 
 	{
 		myAnime = GetComponent<Animator> ();
@@ -16,11 +16,11 @@ public class gotoStartGame : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	if (isSelectionStarted == true) 
+		if (isSelectionStarted == true) 
 		{
 			myAnime.SetBool("gameStart",true);
 		}
 	}
-
-
+	
+	
 }
