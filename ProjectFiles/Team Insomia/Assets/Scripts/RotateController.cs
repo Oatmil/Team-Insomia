@@ -4,10 +4,13 @@ using System.Collections;
 public class RotateController : MonoBehaviour {
 
     public GameObject m_buttonOfCharacter;
+    public GameObject m_PowerGrow;
+    public GameObject m_PowerShrink;
+    public GameObject SpawnPickUpPos;
 
 	public int speed;
 	[HideInInspector] public float movementSpeed;
-	//GameObject myNewFart;
+	
 	float myTime;
 	[HideInInspector]public bool isMove = false;
     bool clockwise = true;
@@ -16,16 +19,13 @@ public class RotateController : MonoBehaviour {
 
 	[HideInInspector]public float delayedDuration;
 	Rigidbody myRigid;
-
+    int fartSpawns=0;
 	PressToMove Player1Pressed;
-
-	//fartPos P1fartPos;
     float defaultMoveSpeed;
 
 	void Start () {
 		myRigid = GetComponent<Rigidbody> ();
         Player1Pressed = m_buttonOfCharacter.GetComponent<PressToMove>();
-		//P1fartPos = GameObject.Find ("fartCubeP1").GetComponent<fartPos> ();
         defaultMoveSpeed = movementSpeed;
 		settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
 		movementSpeed = settings.JesterMovementSpeed;
@@ -39,6 +39,17 @@ public class RotateController : MonoBehaviour {
 				{
 				//transform.position += transform.forward * Time.deltaTime * movementSpeed;
 				myRigid.AddForce(transform.forward * movementSpeed);
+                fartSpawns = Random.Range(0, 5);
+                if (fartSpawns == 1)
+                {
+                    GameObject shrink1 = GameObject.Instantiate(m_PowerShrink, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    shrink1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
+                }
+                if (fartSpawns == 2)
+                {
+                    GameObject grow1 = GameObject.Instantiate(m_PowerGrow, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
+                }
 				//myNewFart = Instantiate(myFart,P1fartPos.myFartPos,Quaternion.identity)as GameObject;
 
 				//if(myRigid.velocity.magnitude == 0f)

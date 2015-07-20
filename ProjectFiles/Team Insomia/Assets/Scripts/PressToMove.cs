@@ -5,7 +5,7 @@ public class PressToMove : MonoBehaviour
 {
 
     public GameObject m_JesterToThisButton;
-
+    public GameObject m_pressToRespawnCanvas;
     float fartCharge;
 
     [HideInInspector]
@@ -40,7 +40,7 @@ public class PressToMove : MonoBehaviour
     void Update()
     {		
 			//Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
-			 if (P1startCharging)
+		if (P1startCharging)
         {
             if (P1SpeedCharging.movementSpeed <= MaxMove)
             {
@@ -52,7 +52,14 @@ public class PressToMove : MonoBehaviour
                 //OnTouchUp();
             }
         }
-
+        if (respawn.death == true)
+        {
+            m_pressToRespawnCanvas.SetActive(true);
+        }
+        else
+        {
+            m_pressToRespawnCanvas.SetActive(false);
+        }
         respawnCounter -= Time.deltaTime;
         if (respawnCounter <= 0)
             respawn.death = false;

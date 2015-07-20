@@ -10,10 +10,15 @@ public class CollisionScript : MonoBehaviour
     float defaultmass;
     float defaulttime;
     Vector3 defaultsize;
+    float differentForce;
+
     bool takeneffect = false;
+
+    RotateController Controller;
     // Use this for initialization
     void Start()
     {
+        Controller = GetComponent<RotateController>();
         rb = GetComponent<Rigidbody>();
         defaultmass = rb.mass;
         defaulttime = effectTime;
@@ -51,7 +56,7 @@ public class CollisionScript : MonoBehaviour
 
             case "Grow(Clone)":
                 rb.mass = 1.4f;
-			transform.localScale = new Vector3(0.9f, defaultsize.y, 0.9f);
+			    transform.localScale = new Vector3(0.9f, defaultsize.y, 0.9f);
                 takeneffect = true;
                 Destroy(col.gameObject);
                 break;
