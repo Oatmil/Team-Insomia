@@ -23,7 +23,7 @@ public class CollisionScript : MonoBehaviour
         defaultmass = rb.mass;
         defaulttime = effectTime;
         defaultsize = transform.localScale;
-
+        Controller.m_pickUpMovespeedmodifier = 1.0f;
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class CollisionScript : MonoBehaviour
             {
                 takeneffect = false;
                 rb.mass = defaultmass;
+                Controller.m_pickUpMovespeedmodifier = 1.0f;
                 transform.localScale = defaultsize;
             }
         }
@@ -50,6 +51,7 @@ public class CollisionScript : MonoBehaviour
 
                 rb.mass = 0.6f;
                 transform.localScale = new Vector3(0.4f, defaultsize.y, 0.4f);
+                Controller.m_pickUpMovespeedmodifier = 0.5f;
                 takeneffect = true;
                 Destroy(col.gameObject);
                 break;
@@ -57,6 +59,7 @@ public class CollisionScript : MonoBehaviour
             case "Grow(Clone)":
                 rb.mass = 1.4f;
 			    transform.localScale = new Vector3(0.9f, defaultsize.y, 0.9f);
+                Controller.m_pickUpMovespeedmodifier = 1.5f;
                 takeneffect = true;
                 Destroy(col.gameObject);
                 break;

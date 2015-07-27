@@ -8,6 +8,7 @@ public class RotateController : MonoBehaviour {
     public GameObject m_PowerShrink;
     public GameObject SpawnPickUpPos;
 
+    [HideInInspector] public float m_pickUpMovespeedmodifier;
 	public int speed;
 	[HideInInspector] public float movementSpeed;
 	
@@ -38,7 +39,7 @@ public class RotateController : MonoBehaviour {
 				if(isMove == false)
 				{
 				//transform.position += transform.forward * Time.deltaTime * movementSpeed;
-				myRigid.AddForce(transform.forward * movementSpeed);
+                    myRigid.AddForce(transform.forward * movementSpeed * m_pickUpMovespeedmodifier);
                 fartSpawns = Random.Range(0, 5);
                 if (fartSpawns == 1)
                 {
