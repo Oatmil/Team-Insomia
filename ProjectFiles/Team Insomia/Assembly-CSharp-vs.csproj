@@ -39,31 +39,49 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>G:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>G:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DeathRespawn.cs" />
+     <Compile Include="Assets\HandleAnimation.cs" />
+     <Compile Include="Assets\PressToSpawn.cs" />
      <Compile Include="Assets\Scripts\BulbScript.cs" />
      <Compile Include="Assets\Scripts\ClassicGameScript.cs" />
+     <Compile Include="Assets\Scripts\CollisionScript.cs" />
+     <Compile Include="Assets\Scripts\DeathRespawn.cs" />
      <Compile Include="Assets\Scripts\GameSettings.cs" />
+     <Compile Include="Assets\Scripts\MainMenuCheck.cs" />
+     <Compile Include="Assets\Scripts\PowerUpSpawn.cs" />
      <Compile Include="Assets\Scripts\PressToMove.cs" />
      <Compile Include="Assets\Scripts\RayInput.cs" />
      <Compile Include="Assets\Scripts\RotateController.cs" />
      <Compile Include="Assets\Scripts\ScoreScriptCanvas.cs" />
      <Compile Include="Assets\Scripts\Scoring.cs" />
      <Compile Include="Assets\Scripts\Spotlight.cs" />
+     <Compile Include="Assets\Scripts\StartGame.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\AnimationBTN.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\AnimationGameMode.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\AnimationLogo.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\MenuSwipe.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\OffsetCheck.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\pauseMenu.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\pause_.cs" />
      <Compile Include="Assets\Scripts\fartPos.cs" />
+     <Compile Include="Assets\Scripts\gotoStartGame.cs" />
+     <Compile Include="Assets\Scripts\killSelf.cs" />
+     <Compile Include="Assets\Scripts\quarternion.cs" />
+     <Compile Include="Assets\Scripts\sortingUI.cs" />
      <Compile Include="Assets\Scripts\touch.cs" />
      <Compile Include="Assets\Scripts\touchINput.cs" />
+     <Compile Include="Assets\StartGameOnTouch.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>G:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

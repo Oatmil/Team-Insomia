@@ -1,13 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PressToMove.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI_Menu\MenuSwipe.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameSettings.cs" Line="6" Column="28" />
-      <File FileName="Assets\Scripts\PressToMove.cs" Line="22" Column="3" />
-      <File FileName="Assets\Scripts\ClassicGameScript.cs" Line="184" Column="1" />
-      <File FileName="Assets\Scripts\Scoring.cs" Line="110" Column="1" />
-      <File FileName="Assets\DeathRespawn.cs" Line="22" Column="1" />
-      <File FileName="Assets\Scripts\RotateController.cs" Line="32" Column="48" />
+      <File FileName="Assets\Scripts\UI_Menu\pause_.cs" Line="33" Column="33" />
+      <File FileName="Assets\Scripts\UI_Menu\pauseMenu.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\StartGame.cs" Line="28" Column="29" />
+      <File FileName="Assets\Scripts\UI_Menu\MenuSwipe.cs" Line="25" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

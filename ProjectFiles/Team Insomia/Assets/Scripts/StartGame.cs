@@ -6,7 +6,9 @@ public class StartGame : MonoBehaviour {
 	public GameObject m_camera;
 	public GameObject m_Canvas;
 	public GameObject m_buttons;
-	
+
+	public GameObject MainMenu;
+
 	public float delayCanvas;
 	bool delayTImer = false;
 	gotoStartGame checking;
@@ -23,6 +25,7 @@ public class StartGame : MonoBehaviour {
 			m_Canvas.SetActive(true);
 			m_buttons.SetActive(true);
 			delayTImer = false;
+			DestroyImmediate(MainMenu);
 		}
 	}
 	void OnMouseDown()
