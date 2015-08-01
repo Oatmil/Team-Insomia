@@ -17,6 +17,7 @@ public class RotateController : MonoBehaviour {
     bool clockwise = true;
 	GameSettings settings;
 	Vector3 moveDirection;
+    int tempSpeed;
 
 	[HideInInspector]public float delayedDuration;
 	Rigidbody myRigid;
@@ -30,6 +31,7 @@ public class RotateController : MonoBehaviour {
         defaultMoveSpeed = movementSpeed;
 		settings = GameObject.Find("MatchManager").GetComponent<GameSettings>();
 		movementSpeed = settings.JesterMovementSpeed;
+        tempSpeed = settings.JesterSpeed;
 	}
 
 	void Update () {
@@ -39,8 +41,11 @@ public class RotateController : MonoBehaviour {
 				if(isMove == false)
 				{
 				//transform.position += transform.forward * Time.deltaTime * movementSpeed;
-                    myRigid.AddForce(transform.forward * movementSpeed * m_pickUpMovespeedmodifier);
-                fartSpawns = Random.Range(0, 5);
+                    if (transform.position.y < 5.2f)
+                    {
+                        myRigid.AddForce(transform.forward * movementSpeed * m_pickUpMovespeedmodifier);
+                        fartSpawns = Random.Range(0, 5);
+                    }
                 if (fartSpawns == 1)
                 {
                     GameObject shrink1 = GameObject.Instantiate(m_PowerShrink, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
@@ -61,31 +66,33 @@ public class RotateController : MonoBehaviour {
 
 		if(isMove == true)
 		{
-			//Debug.Log(myTime);
-			myTime += Time.deltaTime;
-			if(myTime >= delayedDuration + 0.2f)
-			{
-				isMove = false;
-				myTime = 0;
+            //Debug.Log(myTime);
+            myTime += Time.deltaTime;
+            if (myTime >= delayedDuration + 0.2f)
+            {
+                isMove = false;
+                myTime = 0;
                 if (clockwise == false)
                 {
-                    speed = -speed;
+                    speed = -tempSpeed;
                     clockwise = true;
+                    Debug.Log("ANTI CLOCKWISE" + speed);
+                }
+                else if (clockwise == true)
+                {
+                    speed = tempSpeed;
+                    clockwise = false;
+                    Debug.Log("CLOCKWISE" + speed);
 
                 }
-                else if(clockwise == true)
-                {
-                    speed = -speed;
-                    clockwise = false;
-                }
-				Player1Pressed.P1isPressed = false;
-				//Destroy(myNewFart);
+                Player1Pressed.P1isPressed = false;
+                //Destroy(myNewFart);
                 movementSpeed = defaultMoveSpeed;
-			}
+            }
 
 		}
 
-		//Debug.Log (speed);
+		Debug.Log (speed);
 		transform.eulerAngles += new Vector3(0.0f,speed*Time.deltaTime,0.0f);
 	}
 

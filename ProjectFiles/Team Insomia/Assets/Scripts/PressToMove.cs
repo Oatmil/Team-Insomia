@@ -49,7 +49,7 @@ public class PressToMove : MonoBehaviour
             }
             else
             {
-                //OnTouchUp();
+                OnTouchUp();
             }
         }
         if (respawn.death == true)
@@ -89,15 +89,12 @@ public class PressToMove : MonoBehaviour
 	{
 		if(classicGame.currentPhase == classicGame.Round)
 		{
-	        if (respawn.death == false)
-	        {
-	            AudioSource audio = GetComponent<AudioSource>();
-	            audio.Play();
-	        }
 	        mat.color = defaultColour;
 
 	        if (P1isPressed == false)
 	        {
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.Play();
 	            P1startCharging = false;
 	            P1isPressed = true;
 

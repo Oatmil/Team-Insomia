@@ -8,6 +8,7 @@ public class PressToSpawn : MonoBehaviour
 	PressToMove moveScript;
 	StartGameOnTouch StartScript;
 	RotateController RC;
+    GameSettings Setting;
 	// Use this for initialization
 	void Start () 
 	{
@@ -16,7 +17,7 @@ public class PressToSpawn : MonoBehaviour
 		moveScript.enabled=false;
 		StartScript = GameObject.Find("ui_btn_start").GetComponent<StartGameOnTouch>();
 		RC = JesterToThis.GetComponent<RotateController> ();
-
+        Setting = GameObject.Find("MatchManager").GetComponent<GameSettings>();
 	}
 	
 	// Update is called once per frame
@@ -28,7 +29,6 @@ public class PressToSpawn : MonoBehaviour
 		}
 		if(gameFlag.isGameStarted)
 		{
-			RC.speed=200;
 			moveScript.enabled=true;
 		}
 	}
