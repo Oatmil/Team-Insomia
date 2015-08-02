@@ -13,7 +13,7 @@ public class PressToMove : MonoBehaviour
     [HideInInspector]
     public float MaxMove;
     public bool P1isPressed;
-	[HideInInspector]
+    [HideInInspector]
     public bool P1startCharging = false;
     RotateController P1SpeedCharging;
     GameSettings settings;
@@ -22,9 +22,11 @@ public class PressToMove : MonoBehaviour
     private Material mat;
     DeathRespawn respawn;
     public float respawnCounter;
-	ClassicGameScript classicGame;
+    ClassicGameScript classicGame;
 
-	float defaultrotation;
+    [HideInInspector] public bool resetButton = false;
+
+    float defaultrotation;
     void Start()
     {
         P1isPressed = false;
@@ -34,21 +36,22 @@ public class PressToMove : MonoBehaviour
         ChargeRate = settings.JesterChargeRate;
         MaxMove = settings.JesterMaxMove;
         respawn = m_JesterToThisButton.GetComponent<DeathRespawn>();
-		classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
+        classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
     }
 
     void Update()
-    {		
-			//Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
-		if (P1startCharging)
+    {
+        //Debug.Log(fartCharge + " " + P1SpeedCharging.movementSpeed + " " + MaxMove);
+        if (P1startCharging)
         {
-            if (P1SpeedCharging.movementSpeed <= MaxMove)
+            if (P1SpeedCharging.movementSpeed < MaxMove)
             {
-				P1SpeedCharging.delayedDuration = P1SpeedCharging.movementSpeed/MaxMove;
+                P1SpeedCharging.delayedDuration = P1SpeedCharging.movementSpeed / MaxMove;
                 P1SpeedCharging.movementSpeed += ChargeRate;
             }
             else
             {
+                P1SpeedCharging.movementSpeed = MaxMove;
                 OnTouchUp();
             }
         }
@@ -64,41 +67,44 @@ public class PressToMove : MonoBehaviour
         if (respawnCounter <= 0)
             respawn.death = false;
         // Debug.Log(P1SpeedCharging.movementSpeed);
-	
+
     }
     void OnTouchStay()
     {
-	        if (respawn.death == false) {
-			mat.color = selectedColour;
+        if (respawn.death == false)
+        {
+            mat.color = selectedColour;
 
-			if (P1isPressed == false) {
-				P1startCharging = true;
-			}
-		}
+            if (P1isPressed == false)
+            {
+                P1startCharging = true;
+            }
+        }
 
     }
 
-	void OnTouchDown()
-	{
-		if (respawn.death == true) {
-			// Debug.Log("respawncounter" + respawnCounter);
-			respawnCounter -= 1.0f;
-		}
-	}
+    void OnTouchDown()
+    {
+        resetButton = true;
+        if (respawn.death == true)
+        {
+            // Debug.Log("respawncounter" + respawnCounter);
+            respawnCounter -= 1.0f;
+        }
+    }
     void OnTouchUp()
-	{
-		if(classicGame.currentPhase == classicGame.Round)
-		{
-	        mat.color = defaultColour;
+    {
+        if (classicGame.currentPhase == classicGame.Round)
+        {
+            mat.color = defaultColour;
 
-	        if (P1isPressed == false)
-	        {
+            if (P1isPressed == false)
+            {
                 AudioSource audio = GetComponent<AudioSource>();
                 audio.Play();
-	            P1startCharging = false;
-	            P1isPressed = true;
-
-	        }
-		}
+                P1startCharging = false;
+                P1isPressed = true;
+            }
+        }
     }
 }

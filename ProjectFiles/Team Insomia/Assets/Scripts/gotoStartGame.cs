@@ -24,7 +24,7 @@ public class gotoStartGame : MonoBehaviour
             myAnime.SetBool("gameStart", true);
             if (m_BG.transform.localPosition.z > -1f)
             {
-                m_BG.transform.localPosition += new Vector3(0.0f, 0.0f, -0.3f);
+                m_BG.transform.localPosition += new Vector3(0.0f, 0.0f, -0.6f);
             }
         }
     }

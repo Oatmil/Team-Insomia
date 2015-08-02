@@ -43,8 +43,12 @@ public class RotateController : MonoBehaviour {
 				//transform.position += transform.forward * Time.deltaTime * movementSpeed;
                     if (transform.position.y < 5.2f)
                     {
-                        myRigid.AddForce(transform.forward * movementSpeed * m_pickUpMovespeedmodifier);
-                        fartSpawns = Random.Range(0, 5);
+                        if (Player1Pressed.resetButton == true)
+                        {
+                            myRigid.AddForce(transform.forward * movementSpeed * m_pickUpMovespeedmodifier);
+                            fartSpawns = Random.Range(0, 5);
+                            Player1Pressed.resetButton = false;
+                        }
                     }
                 if (fartSpawns == 1)
                 {
@@ -76,13 +80,13 @@ public class RotateController : MonoBehaviour {
                 {
                     speed = -tempSpeed;
                     clockwise = true;
-                    Debug.Log("ANTI CLOCKWISE" + speed);
+                    //Debug.Log("ANTI CLOCKWISE" + speed);
                 }
                 else if (clockwise == true)
                 {
                     speed = tempSpeed;
                     clockwise = false;
-                    Debug.Log("CLOCKWISE" + speed);
+                   // Debug.Log("CLOCKWISE" + speed);
 
                 }
                 Player1Pressed.P1isPressed = false;
@@ -91,8 +95,8 @@ public class RotateController : MonoBehaviour {
             }
 
 		}
-
-		Debug.Log (speed);
+        Debug.Log(Time.deltaTime);
+		//Debug.Log (speed);
 		transform.eulerAngles += new Vector3(0.0f,speed*Time.deltaTime,0.0f);
 	}
 
