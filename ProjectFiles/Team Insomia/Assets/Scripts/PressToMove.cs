@@ -71,6 +71,7 @@ public class PressToMove : MonoBehaviour
     }
     void OnTouchStay()
     {
+		if(respawn)
         if (respawn.death == false)
         {
             mat.color = selectedColour;
@@ -86,6 +87,7 @@ public class PressToMove : MonoBehaviour
     void OnTouchDown()
     {
         resetButton = true;
+		if(respawn)
         if (respawn.death == true)
         {
             // Debug.Log("respawncounter" + respawnCounter);
@@ -93,7 +95,10 @@ public class PressToMove : MonoBehaviour
         }
     }
     void OnTouchUp()
-    {
+
+	
+	{
+		if(classicGame)
         if (classicGame.currentPhase == classicGame.Round)
         {
             mat.color = defaultColour;

@@ -34,8 +34,8 @@ public class ClassicGameScript : MonoBehaviour
 	float Restarttime = 10.0f;
 	
 	public List<Sprite> UISprites = new List<Sprite>();
-	int currentUISprite=0;
-	Image UIImage;
+	[HideInInspector] public int currentUISprite=0;
+	[HideInInspector] public Image UIImage;
 	
 	
 	public void ScriptStart(string[] JesterNames, int JesterCount)
@@ -76,7 +76,7 @@ public class ClassicGameScript : MonoBehaviour
 		
 		
 	}
-	int RoundCountdown=3;
+	[HideInInspector]public int RoundCountdown=3;
 	void AnnounceRound()
 	{
 		spotlightScript.parentPlayer = null;
