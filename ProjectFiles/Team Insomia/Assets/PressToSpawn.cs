@@ -52,7 +52,7 @@ public class PressToSpawn : MonoBehaviour
 				ReadyImageOn = ReadyOn.GetComponent<Image>();
 				ReadyImageOff = ReadyOff.GetComponent<Image>();
 			}
-			if(isReady)
+			if(isReady == true)
 			{
 //				ReadyText.text = "Ready";
 //				ReadyText.color = new Color(0,0,255);
@@ -60,7 +60,7 @@ public class PressToSpawn : MonoBehaviour
 				ReadyImageOff.enabled=false;
 				ButtonImage.SetActive(false);
 			}
-			else
+			if(isReady == false)
 			{
 //				ReadyText.text = "Not Ready";
 //				ReadyText.color = new Color(255,0,0);
@@ -71,7 +71,8 @@ public class PressToSpawn : MonoBehaviour
 		}
 		if(gameFlag.isGameStarted)
 		{
-			RC.speed=200;
+			//RC.speed=200;
+            Debug.Log(RC.speed);
 			moveScript.enabled=true;
 			if(StartScript.round1Started)
 			{
@@ -81,6 +82,8 @@ public class PressToSpawn : MonoBehaviour
 			}
 		//	ReadyText.color= new Color(0,0,0);
 		}
+        if (StartScript.isActiveAndEnabled)
+            StartScript.CheckReady();
 	}
 	void OnTouchDown()
 	{
@@ -100,11 +103,10 @@ public class PressToSpawn : MonoBehaviour
 			//Setting Ready or Not Ready after spawning Jester
 			else
 			{
-				if(!isReady)
+				//if(!isReady)
 					isReady=true;
-				else isReady=false;
-				if(StartScript.isActiveAndEnabled)
-				StartScript.CheckReady();
+				//else isReady=false;
+                
 			}
 
 
@@ -115,6 +117,6 @@ public class PressToSpawn : MonoBehaviour
 	}
     void OnTouchUp()
     {
-
+        isReady = false;
     }
 }
