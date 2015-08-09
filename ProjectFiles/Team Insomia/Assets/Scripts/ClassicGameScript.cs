@@ -61,7 +61,7 @@ public class ClassicGameScript : MonoBehaviour
 		//Prepare an array of the starting positions of said objects
 		for (int i = 0; i < AliveJesters+1; i++)
 		{
-			MovingObjectsP[i] = MovingObjects[i].transform.position;
+			    MovingObjectsP[i] = MovingObjects[i].transform.position;
 		}
 		
 		spotlightScript = GameObject.Find("Score_Spotlight").gameObject.GetComponent<Spotlight>();

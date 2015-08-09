@@ -51,6 +51,7 @@ public class StartGameOnReadyOrTouch : MonoBehaviour
 				classicGame.currentPhase=classicGame.RoundAnnouncement;
 				classicGame.currentUISprite=0;
 				classicGame.UIImage.sprite = classicGame.UISprites[classicGame.currentUISprite];
+
 			}
 			
 		}
@@ -70,25 +71,25 @@ public class StartGameOnReadyOrTouch : MonoBehaviour
 		
 	}
 
-	void OnTouchStay()
-	{
-		if(spr_r.enabled)
-		{
-			if(classicGame.currentPhase==classicGame.RoundConfirmation)
-			{
-				classicGame.currentPhase = classicGame.RoundAnnouncement;
-				spr_r.enabled=false;
-			}
-			else
-			{
-//				gameFlag.isGameStarted=true;
-//				gameFlag.isSelectionStarted=false;
-//				spr_r.enabled=false;
-//				classicGame.enabled=true;
-//				classicGame.ScriptStart(JesterNames, JesterCounter);
-			}
-		}
-	}
+//    void OnTouchStay()
+//    {
+//        if(spr_r.enabled)
+//        {
+//            if(classicGame.currentPhase==classicGame.RoundConfirmation)
+//            {
+//                classicGame.currentPhase = classicGame.RoundAnnouncement;
+//                spr_r.enabled=false;
+//            }
+//            else
+//            {
+////				gameFlag.isGameStarted=true;
+////				gameFlag.isSelectionStarted=false;
+////				spr_r.enabled=false;
+////				classicGame.enabled=true;
+////				classicGame.ScriptStart(JesterNames, JesterCounter);
+//            }
+//        }
+//    }
 
 	public void CheckReady()
 	{
@@ -96,11 +97,12 @@ public class StartGameOnReadyOrTouch : MonoBehaviour
 		if(JesterNames.Length>1)
 		{
 			allReady=true;
-
+            Debug.Log(JesterNames.Length);
 			for(int i=0;i<JesterNames.Length;i++)
 			{
 				string Name=JesterNames[i];
 				//Name=Name[6].ToString();
+                Debug.Log(Name.Length);
 				if(Name.Length>4)
 				{
 
