@@ -18,6 +18,8 @@ public class RotateController : MonoBehaviour {
 	GameSettings settings;
 	Vector3 moveDirection;
     int tempSpeed;
+    [HideInInspector]
+    public Vector3 DefaultRotation;
 
 	[HideInInspector]public float delayedDuration;
 	Rigidbody myRigid;

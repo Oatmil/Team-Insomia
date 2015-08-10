@@ -22,9 +22,15 @@ public class PressToSpawn : MonoBehaviour
     Image ReadyImageOff;
     public GameObject ButtonImage;
     bool loadedSprites = false;
+    ClassicGameScript classicGame;
+
+    [HideInInspector]
+    public Vector3 DefaultRotation;
+
     // Use this for initialization
     void Start()
     {
+        classicGame = GameObject.Find("MatchManager").GetComponent<ClassicGameScript>();
         gameFlag = GameObject.Find("Main Camera").GetComponent<gotoStartGame>();
         moveScript = gameObject.GetComponent<PressToMove>();
         moveScript.enabled = false;
@@ -32,7 +38,7 @@ public class PressToSpawn : MonoBehaviour
         RC = JesterToThis.GetComponent<RotateController>();
         ReadyOn.SetActive(true);
         ReadyOff.SetActive(true);
-
+        DefaultRotation = JesterToThis.transform.eulerAngles;
 
         //		ReadyText =TextElementToThis.GetComponent<Text>();
         //		ReadyText.text = "Not Ready";
@@ -43,9 +49,10 @@ public class PressToSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameFlag.isSelectionStarted)
+        if (gameFlag.isSelectionStarted||classicGame.currentPhase == classicGame.RoundAnnouncement)
         {
             RC.speed = 0;
+            RC.transform.eulerAngles = DefaultRotation;
             moveScript.enabled = false;
             if (!loadedSprites)
             {
@@ -73,9 +80,9 @@ public class PressToSpawn : MonoBehaviour
         if (gameFlag.isGameStarted)
         {
             //RC.speed=200;
-            Debug.Log(" RC " + RC.speed);
+            //Debug.Log(" RC " + RC.speed);
             moveScript.enabled = true;
-            if (StartScript.round1Started)
+            if (StartScript.round1Started || classicGame.currentPhase == classicGame.Round)
             {
                 ReadyImageOn.enabled = false;
                 ReadyImageOff.enabled = false;
@@ -88,7 +95,7 @@ public class PressToSpawn : MonoBehaviour
     }
     void OnTouchDown()
     {
-        if (!StartScript.round1Started)
+        if (!StartScript.round1Started || classicGame.currentPhase == classicGame.RoundAnnouncement)
         {
 
             if (!spawnedJester)

@@ -6,6 +6,8 @@ public class PressToMove : MonoBehaviour
 
     public GameObject m_JesterToThisButton;
     public GameObject m_pressToRespawnCanvas;
+    public GameObject m_ReadyCanvas;
+
     float fartCharge;
 
     [HideInInspector]

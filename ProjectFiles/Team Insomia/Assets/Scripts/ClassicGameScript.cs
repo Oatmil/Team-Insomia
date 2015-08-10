@@ -15,8 +15,9 @@ public class ClassicGameScript : MonoBehaviour
 	public int RoundDuration;
 	public int numberOfRounds;
 	public int AnnouncementTime;
-	
-	int currentRound = 0;
+
+    [HideInInspector]
+    public int currentRound = 1;
 	
 	[HideInInspector] public float timer = 0;
 	int AliveJesters=0;
@@ -44,7 +45,7 @@ public class ClassicGameScript : MonoBehaviour
 		checkGameStart = GameObject.Find ("Main Camera").GetComponent<gotoStartGame> ();
 		winnerStyle = new GUIStyle();
 		winnerStyle.normal.textColor = Color.black;
-		currentRound = 1;
+		//currentRound = 1;
 		//Prepare an array of all moving obejcts
 		for (int i = 0; i < AliveJesters+1; i++)
 		{
@@ -91,7 +92,9 @@ public class ClassicGameScript : MonoBehaviour
 		timer += Time.deltaTime;
 		for (int i = 0; i < 4; i++)
 		{
-			
+            Buttons[i].GetComponent<PressToMove>().m_pressToRespawnCanvas.SetActive(false);
+            Buttons[i].GetComponent<PressToMove>().m_ReadyCanvas.SetActive(true);
+
 			Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
 		}
 		for (int i = 0; i < AliveJesters+1; i++)
@@ -155,35 +158,40 @@ public class ClassicGameScript : MonoBehaviour
 	void UpdateRound()
 	{
 		timer += Time.deltaTime;
-		//round ended
-		if (timer > RoundDuration)
-		{
-			timer = 0;
-			currentRound++;
-			//RoundEnded = true;
-			if (currentRound <= numberOfRounds)
-				currentPhase = RoundAnnouncement;
-			else
-				currentPhase = MatchEnding;
-			for (int i = 0; i < 4; i++)
-			{
-				Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
-			}
-			for (int i = 0; i < AliveJesters+1; i++)
-			{
-				if (MovingObjects[i])
-				{
-					MovingObjects[i].transform.position = MovingObjectsP[i];
-					if (MovingObjects[i].GetComponent<Rigidbody>())
-						MovingObjects[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
-				}
-			}
-			
-			spotlightScript.parentPlayer = null;
-			spotlightScript.gameObject.transform.parent = null;
-			
-			
-		}
+        for (int i = 0; i < 4; i++)
+        {
+            Buttons[i].GetComponent<PressToMove>().m_ReadyCanvas.SetActive(false);
+        }
+            //round ended
+            if (timer > RoundDuration)
+            {
+                Debug.Log(currentRound + " <= " + numberOfRounds);
+                timer = 0;
+                currentRound++;
+                RoundEnded = true;
+                if (currentRound <= numberOfRounds)
+                    currentPhase = RoundAnnouncement;
+                else
+                    currentPhase = MatchEnding;
+                for (int i = 0; i < 4; i++)
+                {
+                    Buttons[i].GetComponent<PressToMove>().P1isPressed = false;
+                }
+                for (int i = 0; i < AliveJesters + 1; i++)
+                {
+                    if (MovingObjects[i])
+                    {
+                        MovingObjects[i].transform.position = MovingObjectsP[i];
+                        if (MovingObjects[i].GetComponent<Rigidbody>())
+                            MovingObjects[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    }
+                }
+
+                spotlightScript.parentPlayer = null;
+                spotlightScript.gameObject.transform.parent = null;
+
+
+            }
 	}
 	bool announcedPlayer = false;
 	void EndMatch()
@@ -240,17 +248,23 @@ public class ClassicGameScript : MonoBehaviour
 	void Update()
 	{
 		if (checkGameStart.isGameStarted == true) {
-			if (currentPhase == RoundAnnouncement)
-				AnnounceRound ();
-			else if (currentPhase == RoundConfirmation)
-				ConfirmRound();
-			else if (currentPhase == Round)
-				UpdateRound ();
-			else if (currentPhase == MatchEnding)
-			{
-				EndMatch ();
-				Restarttime -= Time.deltaTime;
-			}
+            if (currentPhase == RoundAnnouncement)
+            {
+                AnnounceRound();
+
+            }
+            else if (currentPhase == RoundConfirmation)
+                ConfirmRound();
+            else if (currentPhase == Round)
+            {
+                UpdateRound();
+
+            }
+            else if (currentPhase == MatchEnding)
+            {
+                EndMatch();
+                Restarttime -= Time.deltaTime;
+            }
 		};
 		if (Restarttime <= 0)
 			Application.LoadLevel (Application.loadedLevel);
