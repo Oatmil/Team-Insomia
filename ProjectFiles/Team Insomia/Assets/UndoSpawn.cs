@@ -27,24 +27,35 @@ public class UndoSpawn : MonoBehaviour
 
     void OnTouchDown()
     {
-        //StartScript.JesterNames["the correct index"] = null;      
+        //StartScript.JesterNames["the correct index"] = null;
+        presstospawn.JesterToThis.SetActive(false);
+
         for (int i = 0; i < StartScript.JesterNames.Length; i++)
         {
             string Name = StartScript.JesterNames[i];
-            
+
             if (Name == presstospawn.JesterToThis.name)
             {
                 Debug.Log(Name);
-                for (int j=0; j<StartScript.JesterNames.Length - i; j++)
-                    StartScript.JesterNames[i] = StartScript.JesterNames[j];
-            }
-            Debug.Log(StartScript.JesterNames[i]);
-        }
-        presstospawn.JesterToThis.SetActive(false);
-        presstospawn.spawnedJester = false;
 
-        StartScript.JesterCounter--;
-        presstospawn.isReady = false;
+                for (int j = 0; j <StartScript.JesterNames.Length -i -1 ; j++)
+                {  
+                    Debug.Log(j);
+                        StartScript.JesterNames[i + j] = StartScript.JesterNames[i + j +1];
+
+                }
+                StartScript.JesterNames[3] = "";
+                //StartScript.JesterNames[3] = "";
+        Debug.Log("array 0:                   " + StartScript.JesterNames[0] + ":");
+        Debug.Log("array 1:                   " + StartScript.JesterNames[1] + ":");
+        Debug.Log("array 2:                   " + StartScript.JesterNames[2] + ":");
+        Debug.Log("array 3:                   " + StartScript.JesterNames[3] + ":");
+       
+            }
+        }
+         StartScript.JesterCounter -= 1;
+        presstospawn.spawnedJester = false;
         gameObject.SetActive(false);
+        presstospawn.isReady = false;
     }
 }

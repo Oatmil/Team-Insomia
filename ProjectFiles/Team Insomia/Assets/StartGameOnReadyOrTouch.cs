@@ -97,12 +97,12 @@ public class StartGameOnReadyOrTouch : MonoBehaviour
 		if(JesterNames.Length>1)
 		{
 			allReady=true;
-            Debug.Log(JesterNames.Length);
+            //Debug.Log(JesterNames.Length);
 			for(int i=0;i<JesterNames.Length;i++)
 			{
 				string Name=JesterNames[i];
 				//Name=Name[6].ToString();
-                Debug.Log(Name.Length);
+                //Debug.Log(Name.Length);
 				if(Name.Length>4)
 				{
 
