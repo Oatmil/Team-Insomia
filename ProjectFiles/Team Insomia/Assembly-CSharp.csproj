@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>G:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>G:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,8 +67,12 @@
      <Compile Include="Assets\Scripts\UI_Menu\AnimationLogo.cs" />
      <Compile Include="Assets\Scripts\UI_Menu\MenuSwipe.cs" />
      <Compile Include="Assets\Scripts\UI_Menu\OffsetCheck.cs" />
-     <Compile Include="Assets\Scripts\UI_Menu\pauseMenu.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\credit_Menu.cs" />
      <Compile Include="Assets\Scripts\UI_Menu\pause_.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\quit_pause.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\restart_pause.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\resume_pause.cs" />
+     <Compile Include="Assets\Scripts\UI_Menu\tutorial_Menu.cs" />
      <Compile Include="Assets\Scripts\fartPos.cs" />
      <Compile Include="Assets\Scripts\gotoStartGame.cs" />
      <Compile Include="Assets\Scripts\killSelf.cs" />
@@ -79,10 +83,10 @@
      <Compile Include="Assets\StartGameOnReadyOrTouch.cs" />
      <Compile Include="Assets\UndoSpawn.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>G:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>G:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
