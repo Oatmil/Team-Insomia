@@ -57,7 +57,7 @@ public class PressToMove : MonoBehaviour
                 OnTouchUp();
             }
         }
-        if (respawn.death == true)
+        if (respawn.death == true && classicGame.currentPhase == classicGame.Round)
         {
             m_pressToRespawnCanvas.SetActive(true);
         }

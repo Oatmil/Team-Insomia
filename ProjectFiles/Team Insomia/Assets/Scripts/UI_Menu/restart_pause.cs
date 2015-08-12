@@ -10,6 +10,6 @@ public class restart_pause : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void restart_pressed () {
-		Application.LoadLevel (Application.loadedLevel);
+        Application.LoadLevel(Application.loadedLevel);
 	}
 }
