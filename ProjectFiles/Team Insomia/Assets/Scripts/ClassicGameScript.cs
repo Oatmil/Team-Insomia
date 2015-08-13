@@ -16,6 +16,15 @@ public class ClassicGameScript : MonoBehaviour
 	public int numberOfRounds;
 	public int AnnouncementTime;
 
+    public GameObject m_Jester1;
+    public Vector3 m_Jester1Win;
+    public GameObject m_Jester2;
+    public Vector3 m_Jester2Win;
+    public GameObject m_Jester3;
+    public Vector3 m_Jester3Win;
+    public GameObject m_Jester4;
+    public Vector3 m_Jester4Win;
+
     [HideInInspector]
     public int currentRound = 1;
 	
@@ -211,17 +220,20 @@ public class ClassicGameScript : MonoBehaviour
 			switch (winnerPlayer.name[6])
 			{
 			case '1':
-				
+                    GameObject jesterwin = Instantiate(m_Jester1, m_Jester1Win, Quaternion.Euler(m_Jester1.transform.eulerAngles)) as GameObject;
 				winnerStyle.normal.textColor = Color.red;
 				break;
 				
 			case '2':
+                GameObject jesterwin1 = Instantiate(m_Jester2, m_Jester2Win, Quaternion.Euler(m_Jester2.transform.eulerAngles)) as GameObject;
 				winnerStyle.normal.textColor = new Color(0, 1f, 0.876f);
 				break;
 			case '3':
+                GameObject jesterwin2 = Instantiate(m_Jester3, m_Jester3Win, Quaternion.Euler(m_Jester3.transform.eulerAngles)) as GameObject;
 				winnerStyle.normal.textColor = new Color(0.996f, 0.298f, 0.996f);
 				break;
 			case '4':
+                GameObject jesterwin3 = Instantiate(m_Jester4, m_Jester4Win, Quaternion.Euler(m_Jester4.transform.eulerAngles)) as GameObject;
 				winnerStyle.normal.textColor = new Color(0.627f, 1f, 0.129f);
 				break;
 			}

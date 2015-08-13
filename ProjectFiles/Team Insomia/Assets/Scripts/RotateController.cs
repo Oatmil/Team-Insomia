@@ -60,22 +60,22 @@ public class RotateController : MonoBehaviour {
                     }
                 if (fartSpawns == 1)
                 {
-                    GameObject shrink1 = GameObject.Instantiate(m_PowerShrink, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    GameObject shrink1 = GameObject.Instantiate(m_PowerShrink, SpawnPickUpPos.transform.position, Quaternion.Euler(m_PowerShrink.transform.eulerAngles)) as GameObject;
                     shrink1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
                 }
                 if (fartSpawns == 2)
                 {
-                    GameObject grow1 = GameObject.Instantiate(m_PowerGrow, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    GameObject grow1 = GameObject.Instantiate(m_PowerGrow, SpawnPickUpPos.transform.position, Quaternion.Euler(m_PowerGrow.transform.eulerAngles)) as GameObject;
                     grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
                 }
                 if (fartSpawns == 3)
                 {
-                    GameObject grow1 = GameObject.Instantiate(m_PowerMug, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    GameObject grow1 = GameObject.Instantiate(m_PowerMug, SpawnPickUpPos.transform.position, Quaternion.Euler(m_PowerMug.transform.eulerAngles)) as GameObject;
                     grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
                 }
                 if (fartSpawns == 4)
                 {
-                    GameObject grow1 = GameObject.Instantiate(m_PowerWeed, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    GameObject grow1 = GameObject.Instantiate(m_PowerWeed, SpawnPickUpPos.transform.position, Quaternion.Euler(m_PowerWeed.transform.eulerAngles)) as GameObject;
                     grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
                 }
 				//myNewFart = Instantiate(myFart,P1fartPos.myFartPos,Quaternion.identity)as GameObject;
