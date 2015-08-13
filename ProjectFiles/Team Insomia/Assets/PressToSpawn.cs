@@ -98,7 +98,7 @@ public class PressToSpawn : MonoBehaviour
         if (!StartScript.round1Started || classicGame.currentPhase == classicGame.RoundAnnouncement)
         {
 
-            if (!spawnedJester || classicGame.currentRound  == 1)
+            if (!spawnedJester)
             {
                 if (!JesterToThis.activeSelf)
                 {

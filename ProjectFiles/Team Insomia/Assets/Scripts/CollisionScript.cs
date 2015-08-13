@@ -12,7 +12,6 @@ public class CollisionScript : MonoBehaviour
     Vector3 defaultsize;
     float differentForce;
 
-
     bool takeneffect = false;
 
     RotateController Controller;
@@ -25,7 +24,6 @@ public class CollisionScript : MonoBehaviour
         defaulttime = effectTime;
         defaultsize = transform.localScale;
         Controller.m_pickUpMovespeedmodifier = 1.0f;
-        Controller.SpeedModifier = 1.0f;
     }
 
     // Update is called once per frame
@@ -40,7 +38,6 @@ public class CollisionScript : MonoBehaviour
                 rb.mass = defaultmass;
                 Controller.m_pickUpMovespeedmodifier = 1.0f;
                 transform.localScale = defaultsize;
-                Controller.SpeedModifier = 1.0f;
             }
         }
     }
@@ -63,18 +60,6 @@ public class CollisionScript : MonoBehaviour
                 rb.mass = 1.4f;
 			    transform.localScale = new Vector3(0.9f, defaultsize.y, 0.9f);
                 Controller.m_pickUpMovespeedmodifier = 1.5f;
-                takeneffect = true;
-                Destroy(col.gameObject);
-                break;
-
-            case "MUG(Clone)":
-                Controller.SpeedModifier = 1.5f;
-                takeneffect = true;
-                Destroy(col.gameObject);
-                break;
-
-            case "WEED(Clone)":
-                Controller.SpeedModifier = 0.5f;
                 takeneffect = true;
                 Destroy(col.gameObject);
                 break;

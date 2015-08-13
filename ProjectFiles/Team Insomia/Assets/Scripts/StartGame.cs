@@ -25,7 +25,7 @@ public class StartGame : MonoBehaviour {
 			m_Canvas.SetActive(true);
 			m_buttons.SetActive(true);
 			delayTImer = false;
-			//DestroyImmediate(MainMenu);
+			DestroyImmediate(MainMenu);
 		}
 	}
 	void OnMouseDown()
