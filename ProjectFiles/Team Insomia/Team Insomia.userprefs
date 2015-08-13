@@ -1,9 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI_Menu\tutorial_Menu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI_Menu\MenuSwipe.cs">
     <Files>
-      <File FileName="Assets\Scripts\UI_Menu\credit_Menu.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\UI_Menu\tutorial_Menu.cs" Line="32" Column="1" />
+      <File FileName="Assets\Scripts\UI_Menu\pause_.cs" Line="33" Column="33" />
+      <File FileName="Assets\Scripts\UI_Menu\pauseMenu.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\StartGame.cs" Line="28" Column="29" />
+      <File FileName="Assets\Scripts\UI_Menu\MenuSwipe.cs" Line="25" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
