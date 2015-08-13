@@ -6,8 +6,14 @@ public class RotateController : MonoBehaviour {
     public GameObject m_buttonOfCharacter;
     public GameObject m_PowerGrow;
     public GameObject m_PowerShrink;
+    public GameObject m_PowerMug;
+    public GameObject m_PowerWeed;
+
     public GameObject SpawnPickUpPos;
 
+
+    [HideInInspector]
+    public float SpeedModifier;
     [HideInInspector] public float m_pickUpMovespeedmodifier;
 	public int speed;
 	[HideInInspector] public float movementSpeed;
@@ -48,7 +54,7 @@ public class RotateController : MonoBehaviour {
                         if (Player1Pressed.resetButton == true)
                         {
                             myRigid.AddForce(transform.forward * movementSpeed * m_pickUpMovespeedmodifier);
-                            fartSpawns = Random.Range(0, 5);
+                            fartSpawns = Random.Range(0, 7);
                             Player1Pressed.resetButton = false;
                         }
                     }
@@ -60,6 +66,16 @@ public class RotateController : MonoBehaviour {
                 if (fartSpawns == 2)
                 {
                     GameObject grow1 = GameObject.Instantiate(m_PowerGrow, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
+                }
+                if (fartSpawns == 3)
+                {
+                    GameObject grow1 = GameObject.Instantiate(m_PowerMug, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
+                    grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
+                }
+                if (fartSpawns == 4)
+                {
+                    GameObject grow1 = GameObject.Instantiate(m_PowerWeed, SpawnPickUpPos.transform.position, Quaternion.identity) as GameObject;
                     grow1.transform.eulerAngles = new Vector3(Random.Range(25, 65), Random.Range(25, 65), Random.Range(25, 65));
                 }
 				//myNewFart = Instantiate(myFart,P1fartPos.myFartPos,Quaternion.identity)as GameObject;
@@ -99,7 +115,7 @@ public class RotateController : MonoBehaviour {
 		}
 //        Debug.Log(Time.deltaTime);
 		//Debug.Log (speed);
-		transform.eulerAngles += new Vector3(0.0f,speed*Time.deltaTime,0.0f);
+		transform.eulerAngles += new Vector3(0.0f,speed*Time.deltaTime*SpeedModifier,0.0f);
 	}
 
 
