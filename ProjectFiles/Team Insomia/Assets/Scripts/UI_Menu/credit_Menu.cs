@@ -1,31 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class credit_Menu : MonoBehaviour {
+public class credit_Menu : MonoBehaviour
+{
 
-	public GameObject mainMenu_Parent;
-	Vector3 creditAnim;
-	bool isCreditBTN_pressed = false;
+    Animator creditAnimator;
 
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void OnMouseDown () {
 
-		isCreditBTN_pressed = true;
-	}
-	void Update()
-	{
-		if(isCreditBTN_pressed == true)
-		{
-			creditAnim = mainMenu_Parent.transform.position;
-			
-			creditAnim.x -= 0.1f;		
-			
-			mainMenu_Parent.transform.position = creditAnim;
-		}
+    void Start()
+    {
 
-	}
+        creditAnimator = GameObject.Find("MainMenu").GetComponent<Animator>();
+
+    }
+    void OnMouseDown()
+    {
+        creditAnimator.SetBool("startCreditPlay", true);
+    }
+
+    void Update()
+    {
+        if (this.creditAnimator.GetCurrentAnimatorStateInfo(0).IsName("AllDone"))
+        {
+            creditAnimator.SetBool("startCreditPlay", false);
+        }
+    }
 }
