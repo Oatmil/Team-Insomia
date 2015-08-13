@@ -27,13 +27,13 @@ public class PressToMove : MonoBehaviour
     ClassicGameScript classicGame;
     AudioSource audio3;
     public AudioClip endSOund;
+    public GameObject EndPS;
     [HideInInspector] public bool resetButton = false;
 
     float defaultrotation;
     void Start()
     {
         audio3 = GetComponent<AudioSource>();
-
         P1isPressed = false;
         P1SpeedCharging = m_JesterToThisButton.GetComponent<RotateController>();
         mat = GetComponent<Renderer>().material;
@@ -100,6 +100,7 @@ public class PressToMove : MonoBehaviour
         if (classicGame.currentPhase == classicGame.MatchEnding)
         {
             audio3.Play();
+            GameObject EndParticleSystem = Instantiate(EndPS, transform.position, Quaternion.Euler(EndPS.transform.position)) as GameObject;
         }
         resetButton = true;
 		if(respawn)
