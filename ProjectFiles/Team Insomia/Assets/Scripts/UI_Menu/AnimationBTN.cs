@@ -123,4 +123,9 @@ public class AnimationBTN : MonoBehaviour
         }
 
     }
+    void OnMouseDown()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+    }
 }

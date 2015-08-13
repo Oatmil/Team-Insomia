@@ -25,12 +25,15 @@ public class PressToMove : MonoBehaviour
     DeathRespawn respawn;
     public float respawnCounter;
     ClassicGameScript classicGame;
-
+    AudioSource audio3;
+    public AudioClip endSOund;
     [HideInInspector] public bool resetButton = false;
 
     float defaultrotation;
     void Start()
     {
+        audio3 = GetComponent<AudioSource>();
+
         P1isPressed = false;
         P1SpeedCharging = m_JesterToThisButton.GetComponent<RotateController>();
         mat = GetComponent<Renderer>().material;
@@ -68,6 +71,12 @@ public class PressToMove : MonoBehaviour
         respawnCounter -= Time.deltaTime;
         if (respawnCounter <= 0)
             respawn.death = false;
+
+        if (classicGame.currentPhase == classicGame.MatchEnding)
+        {
+            
+            audio3.clip = endSOund;
+        }
         // Debug.Log(P1SpeedCharging.movementSpeed);
 
     }
@@ -88,6 +97,10 @@ public class PressToMove : MonoBehaviour
 
     void OnTouchDown()
     {
+        if (classicGame.currentPhase == classicGame.MatchEnding)
+        {
+            audio3.Play();
+        }
         resetButton = true;
 		if(respawn)
         if (respawn.death == true)
@@ -97,8 +110,6 @@ public class PressToMove : MonoBehaviour
         }
     }
     void OnTouchUp()
-
-	
 	{
 		if(classicGame)
         if (classicGame.currentPhase == classicGame.Round)

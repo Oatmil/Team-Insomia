@@ -32,7 +32,8 @@ public class StartGame : MonoBehaviour {
 	{
 		checking.isSelectionStarted = true;
 		delayTImer = true;
-		
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
 	}
 	
 	
